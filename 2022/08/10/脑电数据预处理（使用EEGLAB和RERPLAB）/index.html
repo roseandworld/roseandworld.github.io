@@ -4,15 +4,35 @@
   <meta charset="utf-8">
   
   
-  <title>Hexo</title>
+  <title>脑电数据预处理（使用EEGLAB和RERPLAB） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="使用EEGLAB和RERPLAB处理脑电数据 首先要安装eeglab及相关插件进行预处理步骤，本次采用的数据为eeglab自带的实验数据集。(eeglab安装网上有很多资料这里就不详细讲啦，在File-&gt;Manage Plugin可以进行插件安装，需要安装Adjust、ERPLAB插件) 都是刚刚学的，肯定有不足之处，欢迎指正批评！  1. 数据导入数据导入过程中有很多导入方式，根据数据的类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="脑电数据预处理（使用EEGLAB和RERPLAB）">
+<meta property="og:url" content="http://example.com/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="使用EEGLAB和RERPLAB处理脑电数据 首先要安装eeglab及相关插件进行预处理步骤，本次采用的数据为eeglab自带的实验数据集。(eeglab安装网上有很多资料这里就不详细讲啦，在File-&gt;Manage Plugin可以进行插件安装，需要安装Adjust、ERPLAB插件) 都是刚刚学的，肯定有不足之处，欢迎指正批评！  1. 数据导入数据导入过程中有很多导入方式，根据数据的类">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/resource/eeglab/1.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/2.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/3.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/4.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/5.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/6.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/7.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/8.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/9.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/10.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/11.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/12.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/13.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/14.png">
+<meta property="og:image" content="http://example.com/resource/eeglab/15.png">
+<meta property="article:published_time" content="2022-08-10T10:58:44.000Z">
+<meta property="article:modified_time" content="2022-08-10T13:35:52.797Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/resource/eeglab/1.png">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,9 +89,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-脑电数据预处理（使用EEGLAB和RERPLAB）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-脑电数据预处理（使用EEGLAB和RERPLAB）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/" class="article-date">
   <time class="dt-published" datetime="2022-08-10T10:58:44.000Z" itemprop="datePublished">2022-08-10</time>
@@ -84,8 +102,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/">脑电数据预处理（使用EEGLAB和RERPLAB）</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      脑电数据预处理（使用EEGLAB和RERPLAB）
     </h1>
   
 
@@ -129,55 +147,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/10/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2022-08-10T08:26:03.549Z" itemprop="datePublished">2022-08-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/08/10/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2022/08/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome!</p>
-<h3 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h3><ul>
-<li>LZUer</li>
-<li>movie &amp; music</li>
-<li><a href="mailto:&#x32;&#55;&#56;&#49;&#x36;&#x39;&#56;&#x31;&#48;&#57;&#64;&#113;&#113;&#46;&#x63;&#111;&#109;">&#x32;&#55;&#56;&#49;&#x36;&#x39;&#56;&#x31;&#48;&#57;&#64;&#113;&#113;&#46;&#x63;&#111;&#109;</a></li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/10/hello-world/" data-id="cl6nnq1uo0000o4t24ai0cm87" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>

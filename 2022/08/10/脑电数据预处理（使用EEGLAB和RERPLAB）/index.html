@@ -29,7 +29,7 @@
 <meta property="og:image" content="http://example.com/resource/eeglab/14.png">
 <meta property="og:image" content="http://example.com/resource/eeglab/15.png">
 <meta property="article:published_time" content="2022-08-10T10:58:44.000Z">
-<meta property="article:modified_time" content="2022-08-10T13:35:52.797Z">
+<meta property="article:modified_time" content="2022-08-10T13:44:13.145Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/resource/eeglab/1.png">
@@ -115,11 +115,12 @@
 <li>首先要安装eeglab及相关插件进行预处理步骤，本次采用的数据为eeglab自带的实验数据集。(eeglab安装网上有很多资料这里就不详细讲啦，在File-&gt;Manage Plugin可以进行插件安装，需要安装Adjust、ERPLAB插件)</li>
 <li>都是刚刚学的，肯定有不足之处，欢迎指正批评！</li>
 </ul>
-<h3 id="1-数据导入"><a href="#1-数据导入" class="headerlink" title="1. 数据导入"></a>1. 数据导入</h3><p>数据导入过程中有很多导入方式，根据数据的类型有不同的导入方式：<br>(1) BP设备采集的数据</p>
+<h3 id="1-数据导入"><a href="#1-数据导入" class="headerlink" title="1. 数据导入"></a>1. 数据导入</h3><p>数据导入过程中有很多导入方式，根据数据的类型有不同的导入方式：<br>(1) BP设备采集的数据<br>BP(Brain Products)是由BP公司生产的用来进行脑电数据采集的设备。一般使用BP采集的数据的数据类型为.vhdr，需要使用下面的方式进行导入。      </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Import data -&gt; Using EEGLAB functions and plugins-&gt; From Brain Vis. Rec. .vhdr file</span><br></pre></td></tr></table></figure>
+<p>(2) .mat数据</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Import data -&gt; Using EEGLAB functions and plugins -&gt; from AscII/float file or Matlab  array</span><br></pre></td></tr></table></figure>
+<p>(3) .set数据</p>
 <ul>
-<li>BP(Brain Products)是由BP公司生产的用来进行脑电数据采集的设备。一般使用BP采集的数据的数据类型为.vhdr，需要使用下面的方式进行导入。      <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Import data -&gt; Using EEGLAB functions and plugins-&gt; From Brain Vis. Rec. .vhdr file</span><br></pre></td></tr></table></figure>
-(2) .mat数据<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Import data -&gt; Using EEGLAB functions and plugins -&gt; from AscII/float file or Matlab  array</span><br></pre></td></tr></table></figure>
-(3) .set数据</li>
 <li>是由EEGALB处理过的数据可以由Load existing data 进行导入<br><img src="/./../resource/eeglab/1.png" alt="alt"><br>(4) NeuroScan</li>
 <li>此设备采集的数据一般导入.cnt文件<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Import data -&gt; Using EEGLAB functions and plugins -&gt; From NeuroScan .CNT/.EEG file</span><br></pre></td></tr></table></figure></li>
 </ul>

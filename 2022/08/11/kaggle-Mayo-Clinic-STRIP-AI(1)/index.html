@@ -19,9 +19,8 @@
 <meta property="og:image" content="http://example.com/resource/Mayo-Clinic-STRIP-AI/1.png">
 <meta property="og:image" content="http://example.com/resource/Mayo-Clinic-STRIP-AI/2.png">
 <meta property="og:image" content="http://example.com/resource/Mayo-Clinic-STRIP-AI/3.png">
-<meta property="og:image" content="http://example.com/resource/Mayo-Clinic-STRIP-AI/4.png">
 <meta property="article:published_time" content="2022-08-10T23:55:58.000Z">
-<meta property="article:modified_time" content="2022-08-12T10:45:39.372Z">
+<meta property="article:modified_time" content="2022-08-12T14:02:52.800Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/resource/Mayo-Clinic-STRIP-AI/1.png">
@@ -207,7 +206,7 @@
 <span id="more"></span>
 
 <hr>
-<h2 id="比赛信息"><a href="#比赛信息" class="headerlink" title="比赛信息"></a>比赛信息</h2><h4 id="Goal-of-the-Competition"><a href="#Goal-of-the-Competition" class="headerlink" title="Goal of the Competition"></a><strong><em>Goal of the Competition</em></strong></h4><blockquote>
+<h2 id="比赛信息"><a href="#比赛信息" class="headerlink" title="比赛信息"></a>比赛信息</h2><h3 id="Goal-of-the-Competition"><a href="#Goal-of-the-Competition" class="headerlink" title="Goal of the Competition"></a><strong><em>Goal of the Competition</em></strong></h3><blockquote>
 <p align="left">The goal of this competition is to classify the blood clot origins in ischemic stroke. Using whole slide digital pathology images, you'll build a model that differentiates between the two major acute ischemic stroke (AIS) etiology subtypes: cardiac and large artery atherosclerosis.</p>
 本次比赛的目标是对缺血性中风的血凝块来源进行分类。 使用整张幻灯片数字病理图像，您将构建一个模型，以区分两种主要的急性缺血性中风 (AIS) 病因亚型：心脏和大动脉粥样硬化。
 </blockquote>
@@ -232,7 +231,7 @@
 </blockquote>
 <p>为了减少后续中风的机会，梅奥诊所神经血管研究实验室鼓励数据科学家改进基于人工智能的病因分类，以便医生能够更好地提出正确的治疗方案。 新的计算和人工智能方法可以帮助挽救中风幸存者的生命，并帮助我们更好地了解世界第二大死因。</p>
 <p><img src="/./../resource/Mayo-Clinic-STRIP-AI/1.png" alt="alt"></p>
-<h4 id="Data-Description"><a href="#Data-Description" class="headerlink" title="Data Description"></a><strong><em>Data Description</em></strong></h4><blockquote>
+<h3 id="Data-Description"><a href="#Data-Description" class="headerlink" title="Data Description"></a><strong><em>Data Description</em></strong></h3><blockquote>
 <p align = "left">The dataset for this competition comprises over a thousand high-resolution whole-slide digital pathology images. Each slide depicts a blood clot from a patient that had experienced an acute ischemic stroke.</p>
 </blockquote>
 <p>本次比赛的数据集包括<em>一千多张</em>高分辨率全幻灯片数字病理图像。 每张幻灯片都描绘了来自经历过急性缺血性中风的患者的血块。</p>
@@ -244,7 +243,7 @@
 <p align = "left">Your task is to classify the etiology (CE or LAA) of the slides in the test set for each patient.</p>
 </blockquote>
 <p>您的任务是为每位患者对测试集中载玻片的病因（CE 或 LAA）进行分类。</p>
-<h4 id="File-and-Data-Field-Descriptions"><a href="#File-and-Data-Field-Descriptions" class="headerlink" title="File and Data Field Descriptions"></a><strong><em>File and Data Field Descriptions</em></strong></h4><blockquote>
+<h3 id="File-and-Data-Field-Descriptions"><a href="#File-and-Data-Field-Descriptions" class="headerlink" title="File and Data Field Descriptions"></a><strong><em>File and Data Field Descriptions</em></strong></h3><blockquote>
 <p align = "left">train/ - A folder containing images in the TIFF format to be used as training data.</p>
 </blockquote>
 <blockquote>
@@ -279,7 +278,7 @@ other.csv - Annotations for images in the other/ folder. Has the same fields as 
 <p align = "left">sample_submission.csv - A sample submission file in the correct format. See the Evaluation page for more details. Note in particular that you should make one prediction per patient_id, not per image_id.</p>
 </blockquote>
 <p>sample_submission.csv - 格式正确的示例提交文件。有关更多详细信息，请参阅评估页面。请特别注意，您应该<strong>对每个患者 ID 进行一次预测，而不是每个图像 ID</strong>。<br><img src="/./../resource/Mayo-Clinic-STRIP-AI/2.png" alt="alt"></p>
-<h4 id="voted-1-‘s-code"><a href="#voted-1-‘s-code" class="headerlink" title="voted_1 ‘s code"></a><strong><em>voted_1 ‘s code</em></strong></h4><h5 id="1-metedata"><a href="#1-metedata" class="headerlink" title="1. metedata"></a>1. metedata</h5><ul>
+<h3 id="voted-1-‘s-code"><a href="#voted-1-‘s-code" class="headerlink" title="voted_1 ‘s code"></a><strong><em>voted_1 ‘s code</em></strong></h3><h4 id="1-metedata"><a href="#1-metedata" class="headerlink" title="1. metedata"></a>1. metedata</h4><ul>
 <li>notebook：<strong><a target="_blank" rel="noopener" href="https://www.kaggle.com/code/datark1/eda-images-processing-and-exploration/notebook">https://www.kaggle.com/code/datark1/eda-images-processing-and-exploration/notebook</a></strong></li>
 <li>dataframe数据分组的使用：<strong><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Yanjy-OnlyOne/p/11217802.html">https://www.cnblogs.com/Yanjy-OnlyOne/p/11217802.html</a></strong></li>
 <li>nunique  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">patients_train = train_df[<span class="string">&#x27;patient_id&#x27;</span>].nunique()</span><br><span class="line">patients_test = test_df[<span class="string">&#x27;patient_id&#x27;</span>].nunique()</span><br><span class="line">patients_other = other_df[<span class="string">&#x27;patient_id&#x27;</span>].nunique()</span><br></pre></td></tr></table></figure>
@@ -289,42 +288,6 @@ other.csv - Annotations for images in the other/ folder. Has the same fields as 
 <p>下面的代码主要进行了数据的可视化，把训练集中的数据分别按照lable和center_id进行分类，然后计算百分比用统计图表示出来</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">plt.style.use(<span class="string">&#x27;Solarize_Light2&#x27;</span>)</span><br><span class="line">labels = train_df.groupby(<span class="string">&#x27;label&#x27;</span>)[<span class="string">&#x27;label&#x27;</span>].count().div(<span class="built_in">len</span>(train_df)).mul(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(labels);</span><br><span class="line"></span><br><span class="line">centers = train_df.groupby(<span class="string">&quot;center_id&quot;</span>)[<span class="string">&#x27;center_id&#x27;</span>].count().div(<span class="built_in">len</span>(train_df)).mul(<span class="number">100</span>)</span><br><span class="line"><span class="built_in">print</span>(centers)</span><br><span class="line"></span><br><span class="line">fig, ax = plt.subplots(<span class="number">1</span>,<span class="number">2</span>, figsize=(<span class="number">16</span>,<span class="number">5</span>))</span><br><span class="line">sns.barplot(x=labels.index, y=labels.values, ax=ax[<span class="number">0</span>])</span><br><span class="line">ax[<span class="number">0</span>].set_title(<span class="string">&quot;Distribution of a target variable&quot;</span>), ax[<span class="number">0</span>].set_ylabel(<span class="string">&quot;%&quot;</span>)</span><br><span class="line">sns.barplot(x=centers.index, y=centers.values, ax=ax[<span class="number">1</span>])</span><br><span class="line">ax[<span class="number">1</span>].set_title(<span class="string">&quot;Images per clinic center&quot;</span>), ax[<span class="number">1</span>].set_ylabel(<span class="string">&quot;%&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="/./../resource/Mayo-Clinic-STRIP-AI/3.png" alt="alt"></p>
-<h5 id="2-Images-exploration-and-processing"><a href="#2-Images-exploration-and-processing" class="headerlink" title="2. Images - exploration and processing"></a>2. Images - exploration and processing</h5><p>首先，找到一共多少数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">train_images = glob(<span class="string">&quot;/kaggle/input/mayo-clinic-strip-ai/train/*&quot;</span>)</span><br><span class="line">test_images = glob(<span class="string">&quot;/kaggle/input/mayo-clinic-strip-ai/test/*&quot;</span>)</span><br><span class="line">other_images = glob(<span class="string">&quot;/kaggle/input/mayo-clinic-strip-ai/other/*&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Number of images in a training set: <span class="subst">&#123;<span class="built_in">len</span>(train_images)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Number of images in a training set: <span class="subst">&#123;<span class="built_in">len</span>(test_images)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Number of other: <span class="subst">&#123;<span class="built_in">len</span>(other_images)&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
-<p>输出：</p>
-<blockquote>
-<p align = "left"> Number of images in a training set: 754</p>
-<p align = "left"> Number of images in a training set: 4</p>
-<p align = "left"> Number of other: 396</p>
-</blockquote>
-<ul>
-<li>glob：用来搜索特定文件地址处的文件 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/71861602">https://zhuanlan.zhihu.com/p/71861602</a></li>
-</ul>
-<p>2.1 使用 OpenSlide 包获取图像的统计信息</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">img_prop = defaultdict(<span class="built_in">list</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i, path <span class="keyword">in</span> <span class="built_in">enumerate</span>(train_images):</span><br><span class="line">    img_path = train_images[i]</span><br><span class="line">    slide = OpenSlide(img_path)    </span><br><span class="line">    img_prop[<span class="string">&#x27;image_id&#x27;</span>].append(img_path[-<span class="number">12</span>:-<span class="number">4</span>])</span><br><span class="line">    img_prop[<span class="string">&#x27;width&#x27;</span>].append(slide.dimensions[<span class="number">0</span>])</span><br><span class="line">    img_prop[<span class="string">&#x27;height&#x27;</span>].append(slide.dimensions[<span class="number">1</span>])</span><br><span class="line">    img_prop[<span class="string">&#x27;size&#x27;</span>].append(<span class="built_in">round</span>(os.path.getsize(img_path) / <span class="number">1e6</span>, <span class="number">2</span>))</span><br><span class="line">    img_prop[<span class="string">&#x27;path&#x27;</span>].append(img_path)</span><br><span class="line"></span><br><span class="line">image_data = pd.DataFrame(img_prop)</span><br><span class="line">image_data[<span class="string">&#x27;img_aspect_ratio&#x27;</span>] = image_data[<span class="string">&#x27;width&#x27;</span>]/image_data[<span class="string">&#x27;height&#x27;</span>]</span><br><span class="line">image_data.sort_values(by=<span class="string">&#x27;image_id&#x27;</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">image_data.reset_index(inplace=<span class="literal">True</span>, drop=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">image_data = image_data.merge(train_df, on=<span class="string">&#x27;image_id&#x27;</span>)</span><br><span class="line">image_data.head()</span><br></pre></td></tr></table></figure>
-<ul>
-<li>OpenSlide<br>是一个为阅读数字病理学中使用的高分辨率图片而创建的库。在处理这些特定的重图像时，它有很多实用的功能。这些图像在未压缩时可能占用数十 GB，因此无法使用标准工具或库轻松读取，这些工具或库专为可以轻松解压缩到 RAM 中的图像而设计。整张幻灯片图像通常是多分辨率的； OpenSlide 允许以最接近所需缩放级别的分辨率读取少量图像数据。</li>
-<li>defaultdict()  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line">s = [(<span class="string">&#x27;yellow&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;blue&#x27;</span>, <span class="number">2</span>), (<span class="string">&#x27;yellow&#x27;</span>, <span class="number">3</span>), (<span class="string">&#x27;blue&#x27;</span>, <span class="number">4</span>), (<span class="string">&#x27;red&#x27;</span>, <span class="number">1</span>)]</span><br><span class="line">d = defaultdict(<span class="built_in">list</span>)</span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> s:</span><br><span class="line">    d[k].append(v)</span><br><span class="line">a = d.items()</span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line">b = <span class="built_in">sorted</span>(d.items())</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">结果：</span></span><br><span class="line"><span class="string">dict_items([(&#x27;yellow&#x27;, [1, 3]), (&#x27;blue&#x27;, [2, 4]), (&#x27;red&#x27;, [1])])</span></span><br><span class="line"><span class="string">[(&#x27;blue&#x27;, [2, 4]), (&#x27;red&#x27;, [1]), (&#x27;yellow&#x27;, [1, 3])]</span></span><br><span class="line"><span class="string">&quot;&quot;&quot;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p align = "left">当字典中没有的键第一次出现时，default_factory自动为其返回一个空列表，list.append()会将值添加进新列表；再次遇到相同的键时，list.append()将其它值再添加进该列表。这种方法比使用dict.setdefault()更为便捷，dict.setdefault()也可以实现相同的功能。</p></blockquote>
-</li>
-</ul>
-<p><strong>原文链接</strong>：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chl183/article/details/107446836">https://blog.csdn.net/chl183/article/details/107446836</a></p>
-<ul>
-<li><p>round(os.path.getsize(img_path)&#x2F;1e6,2)<br>根据path找到图片，计算文件大小，round() 方法返回浮点数x的四舍五入值。</p>
-<blockquote>
-<p align = "left">round( x [, n]  )</p>
-<p align = "left">x -- 数值表达式。</p>
-<p align = "left">n -- 数值表达式，表示从小数点位数。</p>
-</blockquote>
-</li>
-<li><p>image_data[‘img_aspect_ratio’] &#x3D; image_data[‘width’]&#x2F;image_data[‘height’]<br>计算照片比率 w&#x2F;h</p>
-</li>
-<li><p>image_data.reset_index(inplace&#x3D;True, drop&#x3D;True)<br>reset_index可以重置索引，两个参数设置如下：<br>drop:布尔值，如果为False，则将替换的索引列添加到数据中。<br>inplace:布尔值，如果为True，则对原始 DataFrame 本身进行更改。<br>因为前面进行了排序所以后面进行重新的索引<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/144122340">https://zhuanlan.zhihu.com/p/144122340</a></p>
-</li>
-<li><p>image_data &#x3D; image_data.merge(train_df, on&#x3D;’image_id’)<br>merge用于将两个dataframe进行合并，这里使用image_id进行合并，合并完的数据:<br><img src="/./../resource/Mayo-Clinic-STRIP-AI/4.png" alt="alt"></p>
-</li>
-</ul>
 
       
     </div>

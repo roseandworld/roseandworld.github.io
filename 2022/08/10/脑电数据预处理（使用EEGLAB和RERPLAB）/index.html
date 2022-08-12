@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  
   <title>脑电数据预处理（使用EEGLAB和RERPLAB） | Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="使用EEGLAB和RERPLAB处理脑电数据 首先要安装eeglab及相关插件进行预处理步骤，本次采用的数据为eeglab自带的实验数据集。(eeglab安装网上有很多资料这里就不详细讲啦，在File-&gt;Manage Plugin可以进行插件安装，需要安装Adjust、ERPLAB插件) 都是刚刚学的，肯定有不足之处，欢迎指正批评！  1. 数据导入数据导入过程中有很多导入方式，根据数据的类">
+
+  <!-- keywords -->
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用EEGLAB和RERPLAB处理脑电数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="脑电数据预处理（使用EEGLAB和RERPLAB）">
 <meta property="og:url" content="http://example.com/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="使用EEGLAB和RERPLAB处理脑电数据 首先要安装eeglab及相关插件进行预处理步骤，本次采用的数据为eeglab自带的实验数据集。(eeglab安装网上有很多资料这里就不详细讲啦，在File-&gt;Manage Plugin可以进行插件安装，需要安装Adjust、ERPLAB插件) 都是刚刚学的，肯定有不足之处，欢迎指正批评！  1. 数据导入数据导入过程中有很多导入方式，根据数据的类">
+<meta property="og:description" content="使用EEGLAB和RERPLAB处理脑电数据">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/resource/eeglab/1.png">
 <meta property="og:image" content="http://example.com/resource/eeglab/2.png">
@@ -29,89 +32,191 @@
 <meta property="og:image" content="http://example.com/resource/eeglab/14.png">
 <meta property="og:image" content="http://example.com/resource/eeglab/15.png">
 <meta property="article:published_time" content="2022-08-10T10:58:44.000Z">
-<meta property="article:modified_time" content="2022-08-10T13:44:13.145Z">
+<meta property="article:modified_time" content="2022-08-12T01:40:19.573Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/resource/eeglab/1.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
   
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-    
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
+    <link rel="icon" href="/img/favicon.ico">
   
   
 <link rel="stylesheet" href="/css/style.css">
 
   
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+
+  
+<script src="//cdn.bootcss.com/require.js/2.3.2/require.min.js"></script>
+
+  
+<script src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+
 
   
 <meta name="generator" content="Hexo 6.2.0"></head>
-
 <body>
   <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
+    <div id="particles-js"></div>
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+				<img lazy-src="" class="js-avatar">
+			
+		</a>
 
-      <div class="outer">
-        <section id="main"><article id="post-脑电数据预处理（使用EEGLAB和RERPLAB）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/" class="article-date">
-  <time class="dt-published" datetime="2022-08-10T10:58:44.000Z" itemprop="datePublished">2022-08-10</time>
+		<hgroup>
+			<h1 class="header-author"><a href="/">John Doe</a></h1>
+		</hgroup>
+
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">Archives</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="half-header-menu">
+						<a class="hide">Home</a>
+						<a>Tags</a>
+						<a>Links</a>
+						<a>About</a>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/roseandworld/" title="github">github</a>
+					        
+								<a class="mail" target="_blank" href="/2781698109@qq.com" title="mail">mail</a>
+					        
+						</div>
+						<!-- music -->
+						
+							<!-- <div style="position: absolute; bottom: 120px; left: auto; width: 85%;"> -->
+							<div style="position: absolute; left: auto; width: 85%;">
+								<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=220 height=86 src="//music.163.com/outchain/player?type=2&id=5246615&auto=1&height=66"></iframe>
+							</div>
+						
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://github.com/">github</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">LZUer -&gt; music &amp; movie.</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide"></h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author"></h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">Archives</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/roseandworld/" title="github">github</a>
+			        
+						<a class="mail" target="_blank" href="/2781698109@qq.com" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-脑电数据预处理（使用EEGLAB和RERPLAB）" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/" class="article-date">
+  	<time datetime="2022-08-10T10:58:44.000Z" itemprop="datePublished">2022-08-10</time>
 </a>
-    
-  </div>
+    </div>
+  
   <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
       <header class="article-header">
         
   
-    <h1 class="p-name article-title" itemprop="headline name">
+    <h1 class="article-title" itemprop="name">
       脑电数据预处理（使用EEGLAB和RERPLAB）
+      
     </h1>
   
 
       </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="使用EEGLAB和RERPLAB处理脑电数据"><a href="#使用EEGLAB和RERPLAB处理脑电数据" class="headerlink" title="使用EEGLAB和RERPLAB处理脑电数据"></a>使用EEGLAB和RERPLAB处理脑电数据</h2><ul>
+      <div class="article-info article-info-post">
+        
+        
+
+        
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="使用EEGLAB和RERPLAB处理脑电数据"><a href="#使用EEGLAB和RERPLAB处理脑电数据" class="headerlink" title="使用EEGLAB和RERPLAB处理脑电数据"></a>使用EEGLAB和RERPLAB处理脑电数据</h2><span id="more"></span>
+
+<ul>
 <li>首先要安装eeglab及相关插件进行预处理步骤，本次采用的数据为eeglab自带的实验数据集。(eeglab安装网上有很多资料这里就不详细讲啦，在File-&gt;Manage Plugin可以进行插件安装，需要安装Adjust、ERPLAB插件)</li>
 <li>都是刚刚学的，肯定有不足之处，欢迎指正批评！</li>
 </ul>
@@ -140,19 +245,14 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/" data-id="cl6p51yj00002egt21l60a4px" data-title="脑电数据预处理（使用EEGLAB和RERPLAB）" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
+    
   </div>
   
     
 <nav id="article-nav">
   
     <a href="/2022/08/11/kaggle-Mayo-Clinic-STRIP-AI/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
+      <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
           kaggle Mayo Clinic - STRIP AI
@@ -162,8 +262,8 @@
   
   
     <a href="/2022/08/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
       <div class="article-nav-title">Hello World</div>
+      <strong class="article-nav-caption">&gt;</strong>
     </a>
   
 </nav>
@@ -172,90 +272,67 @@
 </article>
 
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/08/">August 2022</a></li></ul>
-    </div>
-  </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/08/11/kaggle-Mayo-Clinic-STRIP-AI/">kaggle Mayo Clinic - STRIP AI</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/">脑电数据预处理（使用EEGLAB和RERPLAB）</a>
-          </li>
-        
-          <li>
-            <a href="/2022/08/10/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
 
-  
-</aside>
-        
-      </div>
+
+</div>
       <footer id="footer">
-  
   <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2022 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    <div id="footer-info">
+      <div class="footer-left">
+        &copy; 2022 John Doe
+      </div>
+        <div class="footer-right">
+          <a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/preccrep/hexo-theme-jelly" target="_blank">Jelly</a>
+        </div>
     </div>
   </div>
 </footer>
-
     </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
     
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
   
-<script src="/fancybox/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: true
+	}
+</script>
+
+<script src="/js/main.js"></script>
 
 
 
 
-<script src="/js/script.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
 
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
 
-
+<script src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js"></script>
 
 
   </div>

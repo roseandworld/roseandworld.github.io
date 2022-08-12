@@ -3,23 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hello World | Hexo</title>
+  <title>图论 | Hexo</title>
 
   <!-- keywords -->
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome! About Me LZUer movie &amp; music &amp;#50;&amp;#55;&amp;#x38;&amp;#x31;&amp;#x36;&amp;#57;&amp;#56;&amp;#x31;&amp;#48;&amp;#57;&amp;#64;&amp;#113;&amp;#113;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;">
+  <meta name="description" content="图论专题1. 图的基本概念图(Graph)——图G是两个集合V（G）和E（G）组成的，记为G &#x3D; (V,E)其中V（G）是顶点的非空有限集，E（G）是边的有限集合，边是顶点的无序对或有序对。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2022/08/10/hello-world/index.html">
+<meta property="og:title" content="图论">
+<meta property="og:url" content="http://example.com/2022/08/11/%E5%9B%BE%E8%AE%BA/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome! About Me LZUer movie &amp; music &amp;#50;&amp;#55;&amp;#x38;&amp;#x31;&amp;#x36;&amp;#57;&amp;#56;&amp;#x31;&amp;#48;&amp;#57;&amp;#64;&amp;#113;&amp;#113;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;">
+<meta property="og:description" content="图论专题1. 图的基本概念图(Graph)——图G是两个集合V（G）和E（G）组成的，记为G &#x3D; (V,E)其中V（G）是顶点的非空有限集，E（G）是边的有限集合，边是顶点的无序对或有序对。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-08-10T08:26:03.549Z">
-<meta property="article:modified_time" content="2022-08-12T01:39:40.447Z">
+<meta property="og:image" content="http://example.com/resource/Graph/1.png">
+<meta property="og:image" content="http://example.com/resource/Graph/2.png">
+<meta property="og:image" content="http://example.com/resource/Graph/3.png">
+<meta property="article:published_time" content="2022-08-11T10:40:58.000Z">
+<meta property="article:modified_time" content="2022-08-12T10:48:25.869Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/resource/Graph/1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -163,11 +167,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-图论" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/08/10/hello-world/" class="article-date">
-  	<time datetime="2022-08-10T08:26:03.549Z" itemprop="datePublished">2022-08-10</time>
+      <a href="/2022/08/11/%E5%9B%BE%E8%AE%BA/" class="article-date">
+  	<time datetime="2022-08-11T10:40:58.000Z" itemprop="datePublished">2022-08-11</time>
 </a>
     </div>
   
@@ -180,7 +184,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      图论
       
     </h1>
   
@@ -198,11 +202,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome!</p>
-<h3 id="About-Me"><a href="#About-Me" class="headerlink" title="About Me"></a>About Me</h3><ul>
-<li>LZUer</li>
-<li>movie &amp; music</li>
-<li><a href="mailto:&#50;&#55;&#x38;&#x31;&#x36;&#57;&#56;&#x31;&#48;&#57;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;">&#50;&#55;&#x38;&#x31;&#x36;&#57;&#56;&#x31;&#48;&#57;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;</a><span id="more"></span></li>
+        <h1 id="图论专题"><a href="#图论专题" class="headerlink" title="图论专题"></a>图论专题</h1><h3 id="1-图的基本概念"><a href="#1-图的基本概念" class="headerlink" title="1. 图的基本概念"></a>1. 图的基本概念</h3><p>图(Graph)——图G是两个集合V（G）和E（G）组成的，记为G &#x3D; (V,E)其中V（G）是顶点的非空有限集，E（G）是边的有限集合，边是顶点的无序对或有序对。</p>
+<span id="more"></span>
+
+<ul>
+<li>有向图<br>E是有向边（也称为弧）的有限集合，记为&lt;v,w&gt;</li>
+<li>无向图<br>E是无向边的有限集合，边是顶点的无序对，记为(v,w)<br><img src="/./../resource/Graph/1.png" alt="alt"></li>
+<li>有向完全图<br>n个顶点的有向图最大边数是n(n-1)</li>
+<li>无向完全图<br>n个顶点的无向图最大边数是n(n-1)&#x2F;2</li>
+<li>邻接点<br>若(vi,vj)是一条无向边，则称vi vj互为邻接点</li>
+<li>关联<br>vi和vj互为邻接点，称边(vi,vj)关联于顶点vi和vj</li>
+<li>顶点的度<br>无向图中，顶点的度为每个顶点相连的边数；<br>在有向图中，分为入度和出度，度 &#x3D; 出度+入度。<br>在有向图中，箭头是具有方向的，从一个顶点指向另一个顶点，这样一来，每个顶点被指向的箭头个数，就是它的入度。从这个顶点指出去的箭头个数，就是它的出度。</li>
+<li>路径<br>路径是顶点的序列</li>
+<li>路径长度<br>沿路径边的数目或沿路径各边权值之和</li>
+<li>回路<br>第一个顶点和最后一个顶点相同的路径叫做回路</li>
+<li>简单路径<br>序列中顶点不重复出现的路径叫做简单路径</li>
+<li>简单回路<br>除第一个和最后一个顶点外，其余顶点不重复出现的回路叫做简单回路</li>
+<li>图的连通性<br>在图论中，连通图基于连通的概念。在一个无向图 G 中，若从顶点 i 到顶点 j 有路径相连（当然从j到i也一定有路径），则称 i 和 j 是连通的。如果 G 是有向图，那么连接i和j的路径中所有的边都必须同向。如果图中任意两点都是连通的，那么图被称作连通图。如果此图是有向图，则称为强连通图（注意：需要双向都有路径）。图的连通性是图的基本性质。</li>
+<li>权<br>与图的边或弧相关的数叫权</li>
+<li>网<br>带权的图叫网</li>
+<li>生成树<br>一个连通图的生成树是一个极小连通子图，它含有图中全部顶点，但只有足以构成一棵树的n-1条边；一颗有n个顶点的生成树有且仅有n-1条边</li>
+<li>自由树（无根树）<br>无回路的的图称为树或自由树或无根树</li>
+<li>有向树<br>只有一个顶点的入度为0，其余顶点的入度为1的有向图<br><img src="/./../resource/Graph/2.png" alt="alt"></li>
+<li>有关图的基本操作<br><img src="/./../resource/Graph/3.png" alt="alt"></li>
 </ul>
 
       
@@ -213,15 +235,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/08/10/%E8%84%91%E7%94%B5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%88%E4%BD%BF%E7%94%A8EEGLAB%E5%92%8CRERPLAB%EF%BC%89/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/08/12/kaggle-Mayo-Clinic-STRIP-AI-%E4%BA%8C/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">&lt;</strong>
       <div class="article-nav-title">
         
-          脑电数据预处理（使用EEGLAB和RERPLAB）
+          kaggle Mayo Clinic - STRIP AI(二)
         
       </div>
     </a>
   
+  
+    <a href="/2022/08/11/kaggle-Mayo-Clinic-STRIP-AI(1)/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">kaggle Mayo Clinic - STRIP AI(一)</div>
+      <strong class="article-nav-caption">&gt;</strong>
+    </a>
   
 </nav>
 

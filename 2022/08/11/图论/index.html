@@ -19,8 +19,19 @@
 <meta property="og:image" content="http://example.com/resource/Graph/1.png">
 <meta property="og:image" content="http://example.com/resource/Graph/2.png">
 <meta property="og:image" content="http://example.com/resource/Graph/3.png">
+<meta property="og:image" content="http://example.com/resource/Graph/4.png">
+<meta property="og:image" content="http://example.com/resource/Graph/5.png">
+<meta property="og:image" content="http://example.com/resource/Graph/6.png">
+<meta property="og:image" content="http://example.com/resource/Graph/7.png">
+<meta property="og:image" content="http://example.com/resource/Graph/10.png">
+<meta property="og:image" content="http://example.com/resource/Graph/13.png">
+<meta property="og:image" content="http://example.com/resource/Graph/14.png">
+<meta property="og:image" content="http://example.com/resource/Graph/14.png">
+<meta property="og:image" content="http://example.com/resource/Graph/16.png">
+<meta property="og:image" content="http://example.com/resource/Graph/17.png">
+<meta property="og:image" content="http://example.com/resource/Graph/18.png">
 <meta property="article:published_time" content="2022-08-11T10:40:58.000Z">
-<meta property="article:modified_time" content="2022-08-12T14:04:50.138Z">
+<meta property="article:modified_time" content="2022-08-16T09:57:22.378Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/resource/Graph/1.png">
@@ -204,6 +215,30 @@
       
         <h1 id="图论专题"><a href="#图论专题" class="headerlink" title="图论专题"></a>图论专题</h1><p>整理图论相关的知识点</p>
 <span id="more"></span>
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+<p><strong>Table of Contents</strong>  <em>generated with <a target="_blank" rel="noopener" href="https://github.com/thlorenz/doctoc">DocToc</a></em></p>
+<ul>
+<li><a href="#%E5%9B%BE%E8%AE%BA%E4%B8%93%E9%A2%98">图论专题</a><ul>
+<li><a href="#1-%E5%9B%BE%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">1. 图的基本概念</a></li>
+<li><a href="#2-%E5%9B%BE%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84">2. 图的存储结构</a><ul>
+<li><a href="#21-%E6%95%B0%E7%BB%84%E8%A1%A8%E7%A4%BA">2.1 数组表示</a></li>
+<li><a href="#22-%E9%82%BB%E6%8E%A5%E7%9F%A9%E9%98%B5%E8%A1%A8%E7%A4%BA">2.2 邻接矩阵表示</a></li>
+<li><a href="#23-%E9%82%BB%E6%8E%A5%E8%A1%A8">2.3 邻接表</a></li>
+</ul>
+</li>
+<li><a href="#3-%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86">3. 图的遍历</a><ul>
+<li><a href="#31-%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86dfs">3.1 深度优先遍历（DFS）</a></li>
+<li><a href="#32-%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86bfs">3.2 广度优先遍历（BFS）</a></li>
+</ul>
+</li>
+<li><a href="#4-%E5%9B%BE%E7%9A%84%E8%BF%9E%E9%80%9A%E6%80%A7%E9%97%AE%E9%A2%98">4. 图的连通性问题</a></li>
+<li><a href="#5-%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE%E5%8F%8A%E5%85%B6%E5%BA%94%E7%94%A8">5. 有向无环图及其应用</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <h3 id="1-图的基本概念"><a href="#1-图的基本概念" class="headerlink" title="1. 图的基本概念"></a>1. 图的基本概念</h3><p>图(Graph)——图G是两个集合V（G）和E（G）组成的，记为G &#x3D; (V,E)其中V（G）是顶点的非空有限集，E（G）是边的有限集合，边是顶点的无序对或有序对。</p>
 <ul>
 <li>有向图<br>E是有向边（也称为弧）的有限集合，记为&lt;v,w&gt;</li>
@@ -225,6 +260,124 @@
 <li>自由树（无根树）<br>无回路的的图称为树或自由树或无根树</li>
 <li>有向树<br>只有一个顶点的入度为0，其余顶点的入度为1的有向图<br><img src="/./../resource/Graph/2.png" alt="alt"></li>
 <li>有关图的基本操作<br><img src="/./../resource/Graph/3.png" alt="alt"></li>
+</ul>
+<h3 id="2-图的存储结构"><a href="#2-图的存储结构" class="headerlink" title="2. 图的存储结构"></a>2. 图的存储结构</h3><h4 id="2-1-数组表示"><a href="#2-1-数组表示" class="headerlink" title="2.1 数组表示"></a>2.1 数组表示</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXNODE 64  <span class="comment">//最大顶点个数</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> VertexType; <span class="comment">//顶点的数据类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">int</span> EdgeType; <span class="comment">//边的数据类型</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span></span><br><span class="line">&#123;</span><br><span class="line">    VertexType vexs[MAXNODE];<span class="comment">//顶点向量</span></span><br><span class="line">    EdgeType arcs[MAXNODE][MAXNODE];<span class="comment">//邻接矩阵</span></span><br><span class="line">    <span class="type">int</span> vexnum,arcnum;<span class="comment">//图的顶点数和弧数</span></span><br><span class="line">&#125;MGraph;</span><br><span class="line">MGraph G;</span><br></pre></td></tr></table></figure>
+<h4 id="2-2-邻接矩阵表示"><a href="#2-2-邻接矩阵表示" class="headerlink" title="2.2 邻接矩阵表示"></a>2.2 邻接矩阵表示</h4><p>若顶点知识编号信息，边上信息只是有无（边），则数组表示法可以简化为如下的邻接矩阵表示法：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> AdjMatrix[MAXNODE][MAXNODE];</span><br></pre></td></tr></table></figure>
+<p>有n个顶点的图G &#x3D; （V,{R}）的邻接矩阵为n阶方阵A，其定义如下：<br><img src="/./../resource/Graph/4.png" alt="alt"></p>
+<ul>
+<li>对于无向图<br>邻接矩阵一定是个对称矩阵，可压缩存储；有n个顶点的无向图需存储空间n(n+1)&#x2F;2,行（列）非零元素个数表示度；</li>
+<li>对于有向图<br>矩阵不一定是一个对称矩阵，有n个顶点的有向图需存储空间为n^2,行非零元素的个数表示出度，列非零元素个数表示入度。<br>邻接矩阵的存储空间只和顶点个数有关，和边数无关。</li>
+</ul>
+<h4 id="2-3-邻接表"><a href="#2-3-邻接表" class="headerlink" title="2.3 邻接表"></a>2.3 邻接表</h4><p>对于图中每个顶点建立一个邻接关系的单链表，并将其表头指针用向量（一维数组）存储，该结构成为邻接表。<br>无向图的第i个链表将图中与顶点vi相邻接的所有顶点链接起来，也就是链表中的表头节点到链表中的每个节点表示了与表头节点vi相关的边。<br>有向图的第i个链表，链接了以顶点vi为弧尾（射出）的所有顶点，也就是链表中表头节点到链表中每个节点表示了图中关联到表头结点vi的所有弧。<br><img src="/./../resource/Graph/5.png" alt="alt"><br><img src="/./../resource/Graph/6.png" alt="alt"><br>若问题总对入度更关心，则可以把线性链表的表节点的数据域更改即可；由表尾改为表头，所有以头结点为表头的弧组成的线性链表。<br><img src="/./../resource/Graph/7.png" alt="alt"> </p>
+<h3 id="3-图的遍历"><a href="#3-图的遍历" class="headerlink" title="3. 图的遍历"></a>3. 图的遍历</h3><p>图的遍历是从图的某个顶点出发，按照某种方式系统的访问图中所有的顶点，使每个顶点仅被访问一次。图的遍历通常有两种方式：<strong>深度优先搜索</strong>和<strong>广度优先搜索</strong>，他们对有向图和无向图都适用。</p>
+<h4 id="3-1-深度优先遍历（DFS）"><a href="#3-1-深度优先遍历（DFS）" class="headerlink" title="3.1 深度优先遍历（DFS）"></a>3.1 深度优先遍历（DFS）</h4><ul>
+<li>过程<blockquote>
+<div align = "left">
+1. 从任一个顶点v出发，访问该顶点；
+2. 然后依次从v的未被访问的邻接点出发深度优先遍历图，直至途中所有和v有路径相通的顶点都被访问到；
+3. 此时若图中有顶点未被访问，则另选中下一个未被访问的顶点做起始点，访问该顶点，继续过程2，直到所有顶点都被访问完。
+</div>
+![alt](./../resource/Graph/8.png)
+**注**：v8访问完之后由于是有向图所以最后访问v5，如果是无向图则会v8 -> v5这个顺序
+![alt](./../resource/Graph/9.png)</blockquote>
+</li>
+<li>算法<br><img src="/./../resource/Graph/10.png" alt="alt"></li>
+</ul>
+<h4 id="3-2-广度优先遍历（BFS）"><a href="#3-2-广度优先遍历（BFS）" class="headerlink" title="3.2 广度优先遍历（BFS）"></a>3.2 广度优先遍历（BFS）</h4><blockquote>
+<div align = "left">
+1. 从图中某顶点出发，在访问v之后
+2. 依次访问v的各个未曾被访问的邻接点，然后分别从这些邻接点出发依次访问他们未被访问的邻接点，并使“先被访问的顶点的邻接点”先于“后被访问的顶点的邻接点”被访问，直至图中所有已经被访问的顶点的邻接点都被访问到；
+3. 若图中尚有顶点未曾被访问，则另选图中一个未曾被访问的顶点做起点访问该节点，继续过程2，直至所有顶点都被访问完毕。
+</div>
+![alt](./../resource/Graph/11.png)
+![alt](./../resource/Graph/12.png)
+</blockquote>
+<h3 id="4-图的连通性问题"><a href="#4-图的连通性问题" class="headerlink" title="4. 图的连通性问题"></a>4. 图的连通性问题</h3><ul>
+<li><p>连通图的生成树</p>
+<ul>
+<li>设G&#x3D;（V，E）是一个连通图，则从图中任一顶点出发遍历图时，必将E（G）分成两个集合T（G）和B（G）。其中T（G）是遍历图时所经过的边集，B（G）是剩余的边集。考虑图G’&#x3D;（V，T），由于V（G’）&#x3D;V（G），E（G’）&#x3D;E（G）， 则G’是G的连通子图，它包括G的所有顶点和足以构成一棵树的n-1条边，称为G的生成树（生成树中不存在回路）。</li>
+<li>分为<strong>深度优先生成树</strong>和<strong>广度优先生成树</strong></li>
+<li>生成森林：非连通图每个连通分量的生成树一起组成的非连通图生成树</li>
+<li>说明<blockquote>
+<p>一个图可以有许多棵不同的生成树<br>所有生成树具有以下共同的特点：</p>
+<ul>
+<li>生成树的顶点个数与图的顶点个数相同</li>
+<li>生成树是图的极小连通子图</li>
+<li>一个有n个顶点的连通图的生成树一定有n-1条边</li>
+<li>生成树中任意两个顶点间的路径是唯一的</li>
+<li>在生成树中再加一条边必然形成回路</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>最小生成树（MST）</p>
+</li>
+<li><p>问题引入：<br><img src="/./../resource/Graph/13.png" alt="alt"></p>
+</li>
+<li><p>性质：<br>设N&#x3D;（V，E）是一个网络，U是顶点集合V的一个真子集，集合W&#x3D;V-U，如果（u，v）的顶点u$\in$U,v$\in$W,且边（u，v）是图N中所有一个端点在U里，一个端点在W里的边中权值最小的边，则一定存在N的一颗最小生成树包括此边（u,v）。</p>
+</li>
+<li><p>构造方法<br>  1.普里姆Prim算法（图使用邻接矩阵实现）</p>
+<ul>
+<li>设N &#x3D; （V，E）是联通网，TE是N上最小生成树中边的集合</li>
+<li>初始令顶点集合U &#x3D; ${u_0},(u_0\in V),TE &#x3D; \Phi$</li>
+<li>在所有u$\in$U,v$\in$V-U的边（u，v）中，找一条代价最小的边（$u_0,v_0$）</li>
+<li>将（$u_0,v_0$）并入集合TE，同时v_0并入U</li>
+<li>重复上面的操作直至U&#x3D;V为止，，则T&#x3D;（V，TE）为N的最小生成树</li>
+</ul>
+<p>  2.克鲁斯卡尔（Kruskal）</p>
+<ul>
+<li>初始状态为只有n个顶点而无边的非连通图T&#x3D;（V,$\Phi$），每个顶点自成一个连通分量</li>
+<li>在E中选取代价最小的边，若该边依附的顶点落在T中不同的连通分量上，则将此边加入到T中；否则，舍去此边，选取下一条代价最小的边</li>
+<li>以此类推，直至T中所有顶点都在同一连通分量上</li>
+</ul>
+</li>
+</ul>
+<h3 id="5-有向无环图及其应用"><a href="#5-有向无环图及其应用" class="headerlink" title="5. 有向无环图及其应用"></a>5. 有向无环图及其应用</h3><p>问题引入<br><img src="/./../resource/Graph/14.png" alt="alt"></p>
+<ul>
+<li>AOV网<br>用顶点表示活动，用弧表示活动间优先关系的有向图成为顶点表示活动的网（Activity On Vertex network），简称AOV网<ul>
+<li>若&lt;$v_i,v_j$&gt;是图中有向边，则$v_i$是$v_j$的直接前驱，$v_j$是$v_i$的直接后继</li>
+<li>AOV网中不允许有回路，否则意味着某项活动以自己为先决条件</li>
+</ul>
+</li>
+<li>拓扑排序<br>把AOV网络中各顶点按照他们相互之间的优先关系排列成一个线性序列的过程叫做拓扑排序。<ul>
+<li>作用：检测AOV网中是否存在环，对有向图构造其顶点的拓扑有序序列，若网中所有顶点都在他的拓扑有序序列中，则该AOV网必定不存在环</li>
+<li>方法<ul>
+<li>在有向图中选一个没有前驱的（入度为0）的顶点且输出之；</li>
+<li>从图中删除该顶点和所有以它为尾的弧</li>
+<li>重复上述两步，直至所有顶点均已输出；或者当图中不存在无前驱的顶点为止<br><img src="/./../resource/Graph/14.png" alt="alt"></li>
+</ul>
+</li>
+<li>算法实现<ul>
+<li>以邻接表作存储结构</li>
+<li>把邻接表中所有入度为0的顶点进栈</li>
+<li>栈非空时，输出栈顶元素$v_j$并退栈；在邻接表中查找$v_j$的直接后继$v_k$,把$v_k$的入度减1；若$v_k$的入度为0则进栈；</li>
+<li>重复上述操作直至栈为空为止。若栈空时输出的顶点个数不是n，则有向图有环；否则，拓扑排序完毕。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>关键路径<br><img src="/./../resource/Graph/16.png" alt="alt"><ul>
+<li>AOE网(Activity On Edge)：也叫边表示活动的网。是一个带权的有向无环图，其中顶点表示事件，弧表示活动，权表示活动持续时间；</li>
+<li>路径长度：路径上个活动持续时间之和</li>
+<li>关键路径：从开始顶点到完成顶点的路径中长度最长的叫关键路径</li>
+<li>关键活动：关键路径上的活动叫关键活动<br><img src="/./../resource/Graph/17.png" alt="alt"></li>
+<li>寻找关键活动<br>设活动$a_k$用弧&lt;i,j&gt;表示，其持续时间记为：dut(&lt;i,j&gt;)则有：<br>（1）e（k）&#x3D; ee(i)<br>（2）l(k) &#x3D; le(j)-dut(&lt;i,j&gt;)<br>求ee（i）和le（j）<br>（1）从ee（1）&#x3D; 0开始向前递推<br>$ee(j) &#x3D; Max{ee(i) + dut(&lt;i,j&gt;)},&lt;i,j&gt;\in T,2 \le j \le n$<br>其中T时所有以j为头的弧的集合<br>（2）从le(n)&#x3D;ee（n）开始向后递推<br>$le(i) &#x3D; Min{le(j) - dut(&lt;i,j&gt;)},&lt;i,j&gt;\in S,1 \le j \le n-1$<br>其中S是所有以i为尾的弧的集合<br><img src="/./../resource/Graph/18.png" alt="alt"></li>
+<li>算法描述<ul>
+<li>输入顶点和弧信息，建立其邻接表</li>
+<li>计算每个顶点的入度</li>
+<li>对其进行拓扑排序<ul>
+<li>排序过程中求顶点的ee[i]</li>
+<li>将得到的拓扑序列进栈</li>
+</ul>
+</li>
+<li>按逆拓扑序列求顶点的le[i]</li>
+<li>计算每条弧的e[k]和l[k]，找出e[k] &#x3D; l[k]的关键活动</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
       
@@ -290,7 +443,7 @@
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
-		open_in_new: true
+		open_in_new: false
 	}
 </script>
 

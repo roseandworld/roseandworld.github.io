@@ -1,161 +1,422 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>大学之道，在明明德，在亲民，在止于至善 - Winnie的个人树洞</title><meta name="author" content="Winnie"><meta name="copyright" content="Winnie"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
-<meta property="og:title" content="大学之道，在明明德，在亲民，在止于至善">
-<meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="大学之道，在明明德，在亲民，在止于至善">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/img/butterfly-icon.png">
-<meta property="article:author" content="Winnie">
-<meta property="article:tag" content="科研 算法 哲学 心理学">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/img/butterfly-icon.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
-    (() => {
-      
-    const saveToLocal = {
-      set: (key, value, ttl) => {
-        if (!ttl) return
-        const expiry = Date.now() + ttl * 86400000
-        localStorage.setItem(key, JSON.stringify({ value, expiry }))
-      },
-      get: key => {
-        const itemStr = localStorage.getItem(key)
-        if (!itemStr) return undefined
-        const { value, expiry } = JSON.parse(itemStr)
-        if (Date.now() > expiry) {
-          localStorage.removeItem(key)
-          return undefined
-        }
-        return value
-      }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jiawen Zhang</title>
+<meta name="description" content="Jiawen Zhang — M.S. student at Peking University and visiting researcher at UIUC (Rehg Lab). Multimodal AI, world models, agentic RL, computational imaging.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fbfaf8;
+    --surface: #ffffff;
+    --text: #1f1f1f;
+    --muted: #5f6368;
+    --faint: #8a8f94;
+    --line: #e6e2dc;
+    --accent: #8c1515;
+    --accent-soft: #f6eaea;
+    --tag-bg: #f1efeb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141414;
+      --surface: #1c1c1c;
+      --text: #e8e6e3;
+      --muted: #a6a29c;
+      --faint: #7c7873;
+      --line: #2e2c2a;
+      --accent: #e07a7a;
+      --accent-soft: #2a1c1c;
+      --tag-bg: #262422;
     }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141414;
+    --surface: #1c1c1c;
+    --text: #e8e6e3;
+    --muted: #a6a29c;
+    --faint: #7c7873;
+    --line: #2e2c2a;
+    --accent: #e07a7a;
+    --accent-soft: #2a1c1c;
+    --tag-bg: #262422;
+  }
 
-    window.btf = {
-      saveToLocal,
-      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
-        const script = document.createElement('script')
-        script.src = url
-        script.async = true
-        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
-        script.onload = script.onreadystatechange = () => {
-          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
-        }
-        script.onerror = reject
-        document.head.appendChild(script)
-      }),
-      getCSS: (url, id) => new Promise((resolve, reject) => {
-        const link = document.createElement('link')
-        link.rel = 'stylesheet'
-        link.href = url
-        if (id) link.id = id
-        link.onload = link.onreadystatechange = () => {
-          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
-        }
-        link.onerror = reject
-        document.head.appendChild(link)
-      }),
-      addGlobalFn: (key, fn, name = false, parent = window) => {
-        if (!false && key.startsWith('pjax')) return
-        const globalFn = parent.globalFn || {}
-        globalFn[key] = globalFn[key] || {}
-        if (name && globalFn[key][name]) return
-        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
-        parent.globalFn = globalFn
-      }
-    }
-  
-      
-      const activateDarkMode = () => {
-        document.documentElement.setAttribute('data-theme', 'dark')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
-        }
-      }
-      const activateLightMode = () => {
-        document.documentElement.setAttribute('data-theme', 'light')
-        if (document.querySelector('meta[name="theme-color"]') !== null) {
-          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
-        }
-      }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.65 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+  b, strong { font-weight: 600; }
 
-      btf.activateDarkMode = activateDarkMode
-      btf.activateLightMode = activateLightMode
+  /* ---------- top nav ---------- */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .inner {
+    max-width: 1080px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; gap: 24px; height: 56px;
+  }
+  nav .brand { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 18px; color: var(--text); margin-right: auto; }
+  nav .links { display: flex; gap: 20px; font-size: 14px; }
+  nav .links a { color: var(--muted); }
+  nav .links a:hover { color: var(--accent); text-decoration: none; }
+  #theme {
+    border: 1px solid var(--line); background: var(--surface); color: var(--muted);
+    width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 15px; line-height: 1;
+  }
 
-      const theme = saveToLocal.get('theme')
-    
-          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
-        
-      
-      const asideStatus = saveToLocal.get('aside-status')
-      if (asideStatus !== undefined) {
-        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
-      }
-    
-      
-    const detectApple = () => {
-      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
-        document.documentElement.classList.add('apple')
-      }
-    }
-    detectApple()
-  
-    })()
-  </script><script>const GLOBAL_CONFIG = {
-  root: '/',
-  algolia: undefined,
-  localSearch: undefined,
-  translate: undefined,
-  noticeOutdate: undefined,
-  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
-  copy: {
-    success: '复制成功',
-    error: '复制失败',
-    noSupport: '浏览器不支持'
-  },
-  relativeDate: {
-    homepage: false,
-    post: false
-  },
-  runtime: '',
-  dateSuffix: {
-    just: '刚刚',
-    min: '分钟前',
-    hour: '小时前',
-    day: '天前',
-    month: '个月前'
-  },
-  copyright: undefined,
-  lightbox: 'null',
-  Snackbar: undefined,
-  infinitegrid: {
-    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
-    buttonText: '加载更多'
-  },
-  isPhotoFigcaption: false,
-  islazyload: false,
-  isAnchor: false,
-  percent: {
-    toc: true,
-    rightside: false,
-  },
-  autoDarkmode: false
-}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
-  title: '大学之道，在明明德，在亲民，在止于至善',
-  isPost: false,
-  isHome: true,
-  isHighlightShrink: false,
-  isToc: false,
-  postUpdate: '2024-10-30 20:41:14'
-}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">大学之道，在明明德，在亲民，在止于至善</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">大学之道，在明明德，在亲民，在止于至善</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2024/10/29/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-10-29T14:28:33.473Z" title="发表于 2024-10-29 22:28:33">2024-10-29</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Winnie</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">1</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/10/29/hello-world/" title="Hello World">Hello World</a><time datetime="2024-10-29T14:28:33.473Z" title="发表于 2024-10-29 22:28:33">2024-10-29</time></div></div></div></div><div class="card-widget card-archives">
-    <div class="item-headline">
-      <i class="fas fa-archive"></i>
-      <span>归档</span>
-      
+  /* ---------- layout ---------- */
+  .wrap {
+    max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px;
+    display: grid; grid-template-columns: 260px 1fr; gap: 56px;
+  }
+  aside { position: sticky; top: 96px; align-self: start; }
+  .avatar {
+    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
+    display: block; background: var(--accent-soft); border: 1px solid var(--line);
+  }
+  .avatar-fallback {
+    width: 180px; height: 180px; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--accent-soft); color: var(--accent);
+    font-family: "Source Serif 4", Georgia, serif; font-size: 56px; font-weight: 600;
+  }
+  aside h1 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 30px; line-height: 1.2; margin: 22px 0 4px; font-weight: 700;
+  }
+  aside .cn { color: var(--faint); font-size: 15px; margin-left: 4px; font-weight: 400; }
+  aside .role { color: var(--muted); font-size: 14.5px; margin: 0 0 18px; }
+  .contact { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+  .contact li { display: flex; align-items: center; gap: 10px; padding: 4px 0; color: var(--muted); }
+  .contact svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  .contact a { color: var(--text); }
+  .contact a:hover { color: var(--accent); }
+
+  main section { margin-bottom: 56px; scroll-margin-top: 80px; }
+  h2 {
+    font-family: "Source Serif 4", Georgia, serif;
+    font-size: 24px; font-weight: 700; margin: 0 0 18px;
+    padding-bottom: 8px; border-bottom: 1px solid var(--line);
+  }
+  main p { margin: 0 0 14px; }
+
+  .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+  .interests span {
+    background: var(--tag-bg); color: var(--text); font-size: 13.5px;
+    padding: 5px 12px; border-radius: 999px;
+  }
+
+  /* ---------- news ---------- */
+  .news { list-style: none; padding: 0; margin: 0; }
+  .news li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 6px 0; font-size: 15px; }
+  .news time { color: var(--faint); font-variant-numeric: tabular-nums; font-size: 14px; padding-top: 1px; }
+
+  /* ---------- publications ---------- */
+  .pub { padding: 18px 0; border-bottom: 1px dashed var(--line); }
+  .pub:last-child { border-bottom: none; }
+  .pub .title { font-family: "Source Serif 4", Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; color: var(--text); }
+  .pub .authors { font-size: 14.5px; color: var(--muted); }
+  .pub .authors .me { color: var(--text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+  .pub .venue { font-size: 14.5px; margin-top: 2px; }
+  .pub .venue em { color: var(--text); }
+  .badge {
+    display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: .02em;
+    padding: 1px 8px; border-radius: 4px; margin-left: 6px; vertical-align: 1px;
+    background: var(--accent-soft); color: var(--accent);
+  }
+  .pub .tldr { font-size: 14.5px; color: var(--muted); margin-top: 8px; }
+  .pub .links { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
+  .pub .links a {
+    font-size: 12.5px; font-weight: 500; padding: 2px 10px;
+    border: 1px solid var(--line); border-radius: 6px; color: var(--muted);
+  }
+  .pub .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+  /* ---------- experience ---------- */
+  .exp { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 16px 0; border-bottom: 1px dashed var(--line); }
+  .exp:last-child { border-bottom: none; }
+  .exp .org { font-weight: 600; font-size: 16px; }
+  .exp .date { color: var(--faint); font-size: 14px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .exp .pos { grid-column: 1 / -1; color: var(--muted); font-size: 14.5px; }
+  .exp ul { grid-column: 1 / -1; margin: 8px 0 0; padding-left: 20px; font-size: 14.5px; }
+  .exp ul li { margin: 3px 0; }
+
+  .honors { list-style: none; padding: 0; margin: 0; }
+  .honors li { display: grid; grid-template-columns: 60px 1fr; gap: 12px; padding: 5px 0; font-size: 15px; }
+  .honors .yr { color: var(--faint); font-variant-numeric: tabular-nums; }
+  .honors .by { color: var(--muted); }
+
+  footer { color: var(--faint); font-size: 13px; text-align: center; padding: 24px; border-top: 1px solid var(--line); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 860px) {
+    .wrap { grid-template-columns: 1fr; gap: 32px; padding: 32px 16px 64px; }
+    aside { position: static; text-align: left; }
+    .avatar, .avatar-fallback { width: 128px; height: 128px; font-size: 42px; }
+    nav .inner { padding: 0 16px; gap: 12px; }
+    nav .links { display: none; }
+  }
+  @media (max-width: 480px) {
+    .news li { grid-template-columns: 1fr; gap: 0; }
+    .exp { grid-template-columns: 1fr; }
+    .exp .date { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <a class="brand" href="#">Jiawen Zhang</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#honors">Honors</a>
     </div>
-    <ul class="card-archive-list">
-  
-      <li class="card-archive-list-item">
-        <a class="card-archive-list-link" href="/archives/2024/10/">
-          <span class="card-archive-list-date">十月 2024</span>
-          <span class="card-archive-list-count">1</span>
-        </a>
+    <button id="theme" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
+  </div>
+</nav>
+
+<div class="wrap">
+  <aside>
+    <!-- Put your headshot next to this file as photo.jpg; the initials show until then. -->
+    <img class="avatar" src="photo.jpg" alt="Jiawen Zhang"
+         onerror="this.outerHTML='<div class=&quot;avatar-fallback&quot;>JZ</div>'">
+    <h1>Jiawen Zhang</h1>
+    <p class="role">M.S. Student, Peking University<br>Visiting Researcher, UIUC</p>
+    <ul class="contact">
+      <li>
+        <svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+        <a href="mailto:zhangjw2019@stu.pku.edu.cn">zhangjw2019@stu.pku.edu.cn</a>
       </li>
-    </ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">1</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-10-30T12:41:14.262Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By Winnie</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Champaign, IL, USA
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+        <a href="cv.pdf">Curriculum Vitae</a>
+      </li>
+      <!-- Uncomment and fill in when available:
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M12 3 2 9l10 6 10-6z"/><path d="M6 11.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5"/></svg>
+        <a href="https://scholar.google.com/citations?user=XXXX">Google Scholar</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.6 11.6 0 0 0-6.2 0C6.6 2.8 5.6 3.1 5.6 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.2 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>
+        <a href="https://github.com/XXXX">GitHub</a>
+      </li>
+      -->
+    </ul>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I am a third-year M.S. student in Electronic Information at the
+        <a href="https://www.pku.edu.cn/">Peking University</a> National Biomedical Imaging Center,
+        and currently a visiting researcher in the <a href="https://rehg.org/">Rehg Lab</a> at the
+        University of Illinois Urbana-Champaign, advised by
+        <a href="https://rehg.org/">Prof. James M. Rehg</a>.
+        Before that, I received my B.Eng. in Computer Science from Lanzhou University, ranking 1st of 168.
+      </p>
+      <p>
+        My research asks how machines can <b>understand and anticipate human behavior</b> from what they see.
+        Recently I have been building world models of human gaze in video, and evaluating whether
+        AI agents can faithfully simulate human cognition at different developmental ages.
+        I have also worked on post-training multimodal LLMs with agentic reinforcement learning at Tencent,
+        and on physics-constrained inverse problems for transcranial photoacoustic imaging.
+      </p>
+      <div class="interests">
+        <span>Multimodal AI &amp; World Models</span>
+        <span>Human Behavior Understanding</span>
+        <span>Agentic RL &amp; VLM Post-Training</span>
+        <span>Computational Imaging</span>
+        <span>Inverse Problems</span>
+      </div>
+    </section>
+
+    <section id="news">
+      <h2>News</h2>
+      <ul class="news">
+        <li><time>Sep 2026</time><span><b>Gaze World Model</b> submitted to ICLR 2027.</span></li>
+        <li><time>Jun 2026</time><span>Joined the <a href="https://rehg.org/">Rehg Lab</a> at UIUC as a visiting researcher.</span></li>
+        <li><time>May 2026</time><span><b>ChildAgentEval</b> preprint released on <a href="https://arxiv.org/abs/2605.17894">arXiv</a>.</span></li>
+        <li><time>Dec 2025</time><span>Started a research internship on multimodal large models at Tencent.</span></li>
+        <li><time>2025</time><span><b><a href="https://www.sciencedirect.com/science/article/pii/S221359792600039X">Radon–FWI</a></b> for transcranial photoacoustic tomography published in <em>Photoacoustics</em>.</span></li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2>Publications</h2>
+
+      <div class="pub">
+        <div class="title">Gaze World Model</div>
+        <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
+        <div class="venue">Under review at <em>International Conference on Learning Representations (ICLR)</em>, 2027</div>
+        <div class="tldr">
+          Treats person-specific gaze in third-person video as world prediction, unifying gaze-point estimation,
+          gaze-shift detection and forecasting of future gaze targets. A latent predictor on a frozen V-JEPA 2.1
+          encoder lifts shift-detection AP from 78.4 to 89.7 over Gaze-LLE, PaGE, SAGE and frontier MLLMs.
+        </div>
+        <div class="links"><a href="https://openreview.net/forum?id=qn2fIgVLER">OpenReview</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="title">Evaluating Cognitive Age Alignment in Interactive AI Agents</div>
+        <div class="authors"><span class="me">Jiawen Zhang</span>, Yifan Shen, Jian Xu, Junho Kim, Ismini Lourentzou, Xu Cao, Meihuan Huang</div>
+        <div class="venue"><em>arXiv preprint arXiv:2605.17894</em>, 2026</div>
+        <div class="tldr">
+          ChildAgentEval: a WISC-inspired interactive web benchmark measuring whether multimodal LLM agents
+          behave like children of a given age, with skill-guided distillation of developmental markers into agent constraints.
+        </div>
+        <div class="links"><a href="https://arxiv.org/abs/2605.17894">arXiv</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="title">Radon–Full-Waveform Inversion for Suppressing Scalp Reverberation and Skull-Induced Aberration in Transcranial Photoacoustic Computed Tomography</div>
+        <div class="authors"><span class="me">Jiawen Zhang</span>, Han Yang, Jintao Ma, Bangxu Fan, Tong Shi, Xiaoyan Zheng, Songqing Xie, Zhuojun Xie, Shuai Na<sup>†</sup></div>
+        <div class="venue"><em>Photoacoustics</em>, 2025<span class="badge">Journal</span></div>
+        <div class="tldr">
+          A dual-domain framework where Radon-domain masks separate scalp multiples and regularize elastic FWI,
+          improving axial resolution from 1.14 mm to 0.28 mm and SSIM from 0.42 to 0.88.
+        </div>
+        <div class="links"><a href="https://www.sciencedirect.com/science/article/pii/S221359792600039X">Paper</a></div>
+      </div>
+
+      <div class="pub">
+        <div class="title">Dual-Modality US–PA Aberration Correction for Transcranial Imaging</div>
+        <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
+        <div class="venue">Under review at <em>IEEE Transactions on Medical Imaging (TMI)</em>, 2026</div>
+        <div class="tldr">
+          UMI-PAI estimates skull-induced phase distortion from the ultrasound reflection matrix and reuses it to
+          correct photoacoustic reconstruction, with up to 44% PSNR gain and no CT/MR priors.
+        </div>
+      </div>
+      <p style="font-size:13px;color:var(--faint);margin:12px 0 0">† Corresponding author</p>
+    </section>
+
+    <section id="experience">
+      <h2>Research Experience</h2>
+
+      <div class="exp">
+        <div class="org">Rehg Lab, University of Illinois Urbana-Champaign</div>
+        <div class="date">Jun 2026 – Present</div>
+        <div class="pos">Research Intern · Advisor: Prof. James M. Rehg · Mentors: Xu Cao, Houze Yang</div>
+        <ul>
+          <li>Led the <b>Gaze World Model</b> project: frozen V-JEPA 2.1 encoder, RoPE scene–head cross-attention, 3D-RoPE temporal trunk and a latent world predictor trained with a motion-weighted latent prediction loss.</li>
+          <li>Built a human-in-the-loop annotation engine that turned frame-level labels in VideoAttentionTarget and ChildPlay into 6,204 event-level gaze shifts.</li>
+          <li>The 105M ViT-B variant beats the 1.7B PaGE ViT-H+ on every shift metric; future gaze L2 0.123 → 0.104.</li>
+        </ul>
+      </div>
+
+      <div class="exp">
+        <div class="org">National Biomedical Imaging Center, Peking University</div>
+        <div class="date">Oct 2024 – Mar 2026</div>
+        <div class="pos">Graduate Researcher · Beijing, China</div>
+        <ul>
+          <li>Formulated transcranial photoacoustic tomography as a PDE-constrained nonlinear inverse problem and developed <b>Radon–FWI</b> (8th-order staggered-grid FDTD, adjoint gradients, FISTA with restart).</li>
+          <li>Proposed <b>UMI-PAI</b>, measurement-based ultrasound–photoacoustic aberration correction validated on acrylic phantoms and murine skulls.</li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top:40px">Industry Experience</h2>
+      <div class="exp">
+        <div class="org">PediaMed AI</div>
+        <div class="date">Mar 2026 – Jun 2026</div>
+        <div class="pos">Research Intern</div>
+        <ul>
+          <li>Built <b>ChildAgentEval</b>, an interactive benchmark for the cognitive age alignment of multimodal LLM agents across psychometrically grounded domains.</li>
+          <li>Proposed two-stage skill-guided distillation that turns child developmental markers into executable constraints on agent language, memory and task-solving behavior.</li>
+        </ul>
+      </div>
+
+
+      <div class="exp">
+        <div class="org">Tencent</div>
+        <div class="date">Dec 2025 – Mar 2026</div>
+        <div class="pos">Research Intern, Multimodal Large Models</div>
+        <ul>
+          <li>Distilled 127K structured CoT trajectories from a 397B teacher into a 4B multimodal model (text + DOM tree + vision) for generative web security assessment.</li>
+          <li>Built an agentic RL pipeline with GRPO, variance-based dynamic prompt sampling and a composite reward that curbs reward hacking.</li>
+          <li>Cut tool-call rounds from 5.43 to 2.90 and latency by 70.8% while reaching 88.5% decision accuracy, above the teacher; reduced false positives by 65.9% on 221K live samples.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="exp">
+        <div class="org">University of Illinois Urbana-Champaign</div>
+        <div class="date">Jun 2026 – Present</div>
+        <div class="pos">Visiting Researcher, Siebel School of Computing and Data Science</div>
+      </div>
+      <div class="exp">
+        <div class="org">Peking University</div>
+        <div class="date">Sep 2024 – Present</div>
+        <div class="pos">M.S. in Electronic Information, National Biomedical Imaging Center</div>
+      </div>
+      <div class="exp">
+        <div class="org">Lanzhou University</div>
+        <div class="date">Sep 2019 – Jun 2024</div>
+        <div class="pos">B.Eng. in Computer Science and Technology · Rank 1/168 · GPA 93.36/100</div>
+      </div>
+    </section>
+
+    <section id="honors">
+      <h2>Honors &amp; Awards</h2>
+      <ul class="honors">
+        <li><span class="yr">2025</span><span><b>Peking University Social Scholarship</b> <span class="by">· Peking University</span></span></li>
+        <li><span class="yr">2023</span><span><b>Finalist</b>, Mathematical Contest in Modeling (MCM)</span></li>
+        <li><span class="yr">2022</span><span><b>National Encouragement Scholarship</b> <span class="by">· Ministry of Education of China</span></span></li>
+        <li><span class="yr">2021</span><span><b>National Scholarship</b> <span class="by">· Ministry of Education of China</span></span></li>
+        <li><span class="yr">2021</span><span><b>Outstanding Student Model</b> <span class="by">· Lanzhou University</span></span></li>
+      </ul>
+    </section>
+
+    <section id="service">
+      <h2>Leadership</h2>
+      <ul class="honors">
+        <li><span class="yr">2024–</span><span>Organization Commissary, School of Software and Microelectronics, Peking University</span></li>
+        <li><span class="yr">2022</span><span>Deputy Class Advisor, Computer Science Cohort 2022, Lanzhou University</span></li>
+        <li><span class="yr">2021</span><span>President, Student Association Management Center, Lanzhou University</span></li>
+      </ul>
+    </section>
+  </main>
+</div>
+
+<footer>© 2026 Jiawen Zhang · Last updated Oct 2026</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement, btn = document.getElementById('theme');
+    try { var t = localStorage.getItem('theme'); if (t) root.setAttribute('data-theme', t); } catch (e) {}
+    btn.addEventListener('click', function () {
+      var cur = root.getAttribute('data-theme') ||
+        (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var next = cur === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+    });
+  })();
+</script>
+</body>
+</html>

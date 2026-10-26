@@ -116,6 +116,10 @@
   .pub .venue-full { font-size: 14px; color: var(--muted); font-style: italic; }
   .exp { border-bottom: 1px solid var(--line); padding: 14px 0; }
   footer { border-top: 1px solid var(--line); }
+  .pub .teaser { margin: 10px 0 4px; }
+  .pub .teaser img { display: block; width: 100%; max-width: 620px; height: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  #travel-map { height: 460px; border-radius: 10px; border: 1px solid var(--line); margin-top: 14px; background: var(--surface); }
+  @media (max-width: 640px) { #travel-map { height: 340px; } }
   @media (max-width: 760px) {
     nav .links { display: none; }
     .pub { grid-template-columns: 1fr; }
@@ -137,6 +141,7 @@
       <a href="#experience">Experience</a>
       <a href="#education">Education</a>
       <a href="#honors">Honors</a>
+      <a href="#life">Life</a>
     </div>
     <button id="theme" aria-label="Toggle dark mode" title="Toggle dark mode">◐</button>
   </div>
@@ -179,7 +184,7 @@
     <section id="about">
       <h2>About Me</h2>
       <p>
-        I am a third-year M.S. student in Electronic Information at the
+        😜 Hi, I am Cecilia! I am a third-year M.S. student in Electronic Information at the
         <a href="https://www.pku.edu.cn/">Peking University</a> National Biomedical Imaging Center,
         and currently a visiting researcher in the <a href="https://rehg.org/">Rehg Lab</a> at the
         University of Illinois Urbana-Champaign, advised by
@@ -205,11 +210,17 @@
     <section id="news">
       <h2>News</h2>
       <ul class="news">
-        <li><time>Sep 2026</time><span><b>Gaze World Model</b> submitted to CVPR 2027.</span></li>
+        <li><time>Oct 2026</time><span><b>Gaze World Model</b> submitted to CVPR 2027.</span></li>
+        <li><time>Oct 2026</time><span><b>ChildAgentEval</b> (co-first author) submitted to EACL 2027.</span></li>
         <li><time>May 2026</time><span><b>ChildAgentEval</b> preprint released on <a href="https://arxiv.org/abs/2605.17894">arXiv</a>.</span></li>
-        <li><time>Mar 2026</time><span>Joined the <a href="https://rehg.org/">Rehg Lab</a> at UIUC as a visiting researcher.</span></li>
+        <li><time>Apr 2026</time><span><b><a href="https://www.sciencedirect.com/science/article/pii/S221359792600039X">Radon–FWI</a></b> for transcranial photoacoustic tomography published in <em>Photoacoustics</em>.</span></li>
+        <li><time>Mar 2026</time><span>Joined the <a href="https://rehg.org/">Rehg Lab</a> at UIUC as a visiting researcher, working with <a href="https://rehg.org/">Prof. Jim Rehg</a>.</span></li>
+        <li><time>Mar 2026</time><span>Started a research internship at PediaMed AI, working on <b>ChildAgentEval</b> with <a href="https://isminoula.github.io/">Prof. Ismini Lourentzou</a> (UIUC).</span></li>
         <li><time>Dec 2025</time><span>Started a research internship on multimodal large models at Tencent.</span></li>
-        <li><time>2025</time><span><b><a href="https://www.sciencedirect.com/science/article/pii/S221359792600039X">Radon–FWI</a></b> for transcranial photoacoustic tomography published in <em>Photoacoustics</em>.</span></li>
+        <li><time>2025</time><span>Received the Peking University Social Scholarship.</span></li>
+        <li><time>Sep 2024</time><span>Started my M.S. in Electronic Information at <a href="https://www.pku.edu.cn/">Peking University</a>.</span></li>
+        <li><time>Jun 2024</time><span>Graduated from Lanzhou University with a B.Eng. in Computer Science (ranked 1st of 168), where I did research in the <a href="https://uais.lzu.edu.cn/">UAIS Lab</a> (Ubiquitous Awareness and Intelligent Solutions Lab).</span></li>
+        <li><time>2023</time><span>Received the National Scholarship from the Ministry of Education of China.</span></li>
       </ul>
     </section>
 
@@ -225,13 +236,13 @@
           gaze-shift detection and forecasting of future gaze targets. A latent predictor on a frozen V-JEPA 2.1
           encoder lifts shift-detection AP from 78.4 to 89.7 over Gaze-LLE, PaGE, SAGE and frontier MLLMs.
         </div>
-        <div class="links"><a href="https://openreview.net/forum?id=qn2fIgVLER">OpenReview</a></div>
       </div>
 
       <div class="pub">
-        <div class="vtag">arXiv</div><div class="title">Evaluating Cognitive Age Alignment in Interactive AI Agents</div>
-        <div class="authors"><span class="me">Jiawen Zhang</span>, Yifan Shen, Jian Xu, Junho Kim, Ismini Lourentzou, Xu Cao, Meihuan Huang</div>
-        <div class="venue venue-full"><em>arXiv preprint arXiv:2605.17894</em>, 2026</div>
+        <div class="vtag">EACL</div><div class="title">Evaluating Cognitive Age Alignment in Interactive AI Agents</div>
+        <div class="authors"><span class="me">Jiawen Zhang</span><sup>*</sup>, Yifan Shen<sup>*</sup>, Jian Xu, Junho Kim, Ismini Lourentzou, Xu Cao, Meihuan Huang</div>
+        <div class="venue venue-full">Under review at <em>Conference of the European Chapter of the Association for Computational Linguistics (EACL)</em>, 2027; <em>arXiv:2605.17894</em>, 2026</div>
+        <div class="teaser"><img src="images/childagenteval.jpg" alt="Overview of the ChildAgentEval framework" loading="lazy"></div>
         <div class="tldr">
           ChildAgentEval: a WISC-inspired interactive web benchmark measuring whether multimodal LLM agents
           behave like children of a given age, with skill-guided distillation of developmental markers into agent constraints.
@@ -242,7 +253,8 @@
       <div class="pub">
         <div class="vtag">Photoacoustics</div><div class="title">Radon–Full-Waveform Inversion for Suppressing Scalp Reverberation and Skull-Induced Aberration in Transcranial Photoacoustic Computed Tomography</div>
         <div class="authors"><span class="me">Jiawen Zhang</span>, Han Yang, Jintao Ma, Bangxu Fan, Tong Shi, Xiaoyan Zheng, Songqing Xie, Zhuojun Xie, Shuai Na<sup>†</sup></div>
-        <div class="venue venue-full"><em>Photoacoustics</em>, 2025<span class="badge">Journal</span></div>
+        <div class="venue venue-full"><em>Photoacoustics</em>, 2026<span class="badge">Journal</span></div>
+        <div class="teaser"><img src="images/rtfwi.jpg" alt="Overview of the RT–FWI algorithm" loading="lazy"></div>
         <div class="tldr">
           A dual-domain framework where Radon-domain masks separate scalp multiples and regularize elastic FWI,
           improving axial resolution from 1.14 mm to 0.28 mm and SSIM from 0.42 to 0.88.
@@ -259,7 +271,7 @@
           correct photoacoustic reconstruction, with up to 44% PSNR gain and no CT/MR priors.
         </div>
       </div>
-      <p style="font-size:13px;color:var(--faint);margin:12px 0 0">† Corresponding author</p>
+      <p style="font-size:13px;color:var(--faint);margin:12px 0 0">* Equal contribution &nbsp;&nbsp; † Corresponding author</p>
     </section>
 
     <section id="experience">
@@ -268,7 +280,7 @@
       <div class="exp">
         <div class="org">Rehg Lab, University of Illinois Urbana-Champaign</div>
         <div class="date">Mar 2026 – Present</div>
-        <div class="pos">Research Intern · Advisor: Prof. James M. Rehg · Mentors: Xu Cao, Houze Yang</div>
+        <div class="pos">Research Intern · Advisor: <a href="https://rehg.org/">Prof. James M. Rehg</a> · Mentors: <a href="https://www.irohxucao.com/">Xu Cao</a>, <a href="https://houzey2.github.io/">Houze Yang</a>, <a href="https://shenyifans.github.io/">Yifan Shen</a></div>
         <ul>
           <li>Led the <b>Gaze World Model</b> project: frozen V-JEPA 2.1 encoder, RoPE scene–head cross-attention, 3D-RoPE temporal trunk and a latent world predictor trained with a motion-weighted latent prediction loss.</li>
           <li>Built a human-in-the-loop annotation engine that turned frame-level labels in VideoAttentionTarget and ChildPlay into 6,204 event-level gaze shifts.</li>
@@ -333,6 +345,7 @@
       <h2>Honors &amp; Awards</h2>
       <ul class="honors">
         <li><span class="yr">2025</span><span><b>Peking University Social Scholarship</b> <span class="by">· Peking University</span></span></li>
+        <li><span class="yr">2023</span><span><b>National Scholarship</b> <span class="by">· Ministry of Education of China</span></span></li>
         <li><span class="yr">2023</span><span><b>Finalist</b>, Mathematical Contest in Modeling (MCM)</span></li>
         <li><span class="yr">2022</span><span><b>National Encouragement Scholarship</b> <span class="by">· Ministry of Education of China</span></span></li>
         <li><span class="yr">2021</span><span><b>National Scholarship</b> <span class="by">· Ministry of Education of China</span></span></li>
@@ -347,6 +360,15 @@
         <li><span class="yr">2022</span><span>Deputy Class Advisor, Computer Science Cohort 2022, Lanzhou University</span></li>
         <li><span class="yr">2021</span><span>President, Student Association Management Center, Lanzhou University</span></li>
       </ul>
+    </section>
+
+    <section id="life">
+      <h2>Beyond Research</h2>
+      <p>
+        Outside the lab, I am a big fan of 🎬 <b>movies</b> and ✈️ <b>traveling</b>.
+        So far I have visited 56 cities in 4 countries. Here are some of the places I have been:
+      </p>
+      <div id="travel-map" role="img" aria-label="Map of cities I have visited"></div>
     </section>
   </main>
 </div>
@@ -364,6 +386,53 @@
       root.setAttribute('data-theme', next);
       try { localStorage.setItem('theme', next); } catch (e) {}
     });
+  })();
+</script>
+<script src="data/china.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<script>
+  (function () {
+    var el = document.getElementById('travel-map');
+    if (!el || !window.echarts || !window.CHINA_GEO) return;
+    echarts.registerMap('china', window.CHINA_GEO);
+    var visited = ['北京市', '河北省', '山西省', '辽宁省', '甘肃省', '青海省', '西藏自治区', '陕西省',
+                   '重庆市', '云南省', '湖南省', '福建省', '香港特别行政区'];
+    var cities = [
+      ['Beijing', 116.41, 39.90], ['Zhangjiakou', 114.89, 40.77], ['Taiyuan', 112.55, 37.87],
+      ['Jinzhou', 121.13, 41.10], ['Dalian', 121.61, 38.91], ['Lanzhou', 103.83, 36.06],
+      ['Xining', 101.78, 36.62], ['Haixi', 97.37, 37.37], ['Lhasa', 91.17, 29.65],
+      ["Xi'an", 108.94, 34.34], ['Chongqing', 106.55, 29.56], ['Kunming', 102.72, 25.04],
+      ['Changsha', 112.94, 28.23], ['Chenzhou', 113.01, 25.77], ['Quanzhou', 118.68, 24.87],
+      ['Hong Kong', 114.17, 22.32]
+    ];
+    var chart = echarts.init(el);
+    function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+    function draw() {
+      var accent = css('--accent'), line = css('--line'), text = css('--text'), muted = css('--muted'), tag = css('--tag-bg');
+      chart.setOption({
+        tooltip: { trigger: 'item', formatter: function (p) { return p.seriesType === 'effectScatter' ? p.name : ''; } },
+        geo: {
+          map: 'china', roam: true, zoom: 1.55, center: [105, 33.5], scaleLimit: { min: 1, max: 6 },
+          itemStyle: { areaColor: tag, borderColor: line, borderWidth: 0.8 },
+          emphasis: { disabled: true }, select: { disabled: true }, label: { show: false },
+          regions: visited.map(function (n) {
+            return { name: n, itemStyle: { areaColor: accent, opacity: 0.45, borderColor: accent } };
+          })
+        },
+        series: [{
+          type: 'effectScatter', coordinateSystem: 'geo', symbolSize: 7,
+          rippleEffect: { scale: 3, brushType: 'stroke' },
+          itemStyle: { color: accent },
+          label: { show: true, formatter: '{b}', position: 'right', fontSize: 11, color: text },
+          labelLayout: { hideOverlap: true },
+          data: cities.map(function (c) { return { name: c[0], value: [c[1], c[2]] }; })
+        }]
+      }, true);
+    }
+    draw();
+    new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
+    addEventListener('resize', function () { chart.resize(); });
   })();
 </script>
 </body>

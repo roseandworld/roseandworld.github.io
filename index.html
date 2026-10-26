@@ -7,174 +7,122 @@
 <meta name="description" content="Jiawen Zhang — M.S. student at Peking University and visiting researcher at UIUC (Rehg Lab). Multimodal AI, world models, agentic RL, computational imaging.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Slab:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #fbfaf8;
+    --bg: #ffffff;
     --surface: #ffffff;
-    --text: #1f1f1f;
-    --muted: #5f6368;
-    --faint: #8a8f94;
-    --line: #e6e2dc;
-    --accent: #8c1515;
-    --accent-soft: #f6eaea;
-    --tag-bg: #f1efeb;
+    --text: #212529;
+    --muted: #6c757d;
+    --faint: #9aa0a6;
+    --line: #e9ecef;
+    --accent: #7c3aed;
+    --tag-bg: #f3eefd;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --bg: #141414;
-      --surface: #1c1c1c;
-      --text: #e8e6e3;
-      --muted: #a6a29c;
-      --faint: #7c7873;
-      --line: #2e2c2a;
-      --accent: #e07a7a;
-      --accent-soft: #2a1c1c;
-      --tag-bg: #262422;
+    --bg: #1c1c1d;
+    --surface: #232325;
+    --text: #e9ecef;
+    --muted: #a5abb1;
+    --faint: #7d838a;
+    --line: #333336;
+    --accent: #a78bfa;
+    --tag-bg: #2a2340;
     }
   }
   :root[data-theme="dark"] {
-    --bg: #141414;
-    --surface: #1c1c1c;
-    --text: #e8e6e3;
-    --muted: #a6a29c;
-    --faint: #7c7873;
-    --line: #2e2c2a;
-    --accent: #e07a7a;
-    --accent-soft: #2a1c1c;
-    --tag-bg: #262422;
+    --bg: #1c1c1d;
+    --surface: #232325;
+    --text: #e9ecef;
+    --muted: #a5abb1;
+    --faint: #7d838a;
+    --line: #333336;
+    --accent: #a78bfa;
+    --tag-bg: #2a2340;
   }
-
   * { box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-  body {
-    margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font: 16px/1.65 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-    -webkit-font-smoothing: antialiased;
-  }
+  body { margin: 0; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
   a { color: var(--accent); text-decoration: none; }
   a:hover { text-decoration: underline; text-underline-offset: 3px; }
   b, strong { font-weight: 600; }
-
-  /* ---------- top nav ---------- */
-  nav {
-    position: sticky; top: 0; z-index: 10;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
-  }
-  nav .inner {
-    max-width: 1080px; margin: 0 auto; padding: 0 24px;
-    display: flex; align-items: center; gap: 24px; height: 56px;
-  }
-  nav .brand { font-family: "Source Serif 4", Georgia, serif; font-weight: 700; font-size: 18px; color: var(--text); margin-right: auto; }
-  nav .links { display: flex; gap: 20px; font-size: 14px; }
-  nav .links a { color: var(--muted); }
-  nav .links a:hover { color: var(--accent); text-decoration: none; }
-  #theme {
-    border: 1px solid var(--line); background: var(--surface); color: var(--muted);
-    width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 15px; line-height: 1;
-  }
-
-  /* ---------- layout ---------- */
-  .wrap {
-    max-width: 1080px; margin: 0 auto; padding: 48px 24px 80px;
-    display: grid; grid-template-columns: 260px 1fr; gap: 56px;
-  }
-  aside { position: sticky; top: 96px; align-self: start; }
-  .avatar {
-    width: 180px; height: 180px; border-radius: 50%; object-fit: cover;
-    display: block; background: var(--accent-soft); border: 1px solid var(--line);
-  }
-  .avatar-fallback {
-    width: 180px; height: 180px; border-radius: 50%;
-    display: grid; place-items: center;
-    background: var(--accent-soft); color: var(--accent);
-    font-family: "Source Serif 4", Georgia, serif; font-size: 56px; font-weight: 600;
-  }
-  aside h1 {
-    font-family: "Source Serif 4", Georgia, serif;
-    font-size: 30px; line-height: 1.2; margin: 22px 0 4px; font-weight: 700;
-  }
-  aside .cn { color: var(--faint); font-size: 15px; margin-left: 4px; font-weight: 400; }
-  aside .role { color: var(--muted); font-size: 14.5px; margin: 0 0 18px; }
-  .contact { list-style: none; padding: 0; margin: 0; font-size: 14px; }
-  .contact li { display: flex; align-items: center; gap: 10px; padding: 4px 0; color: var(--muted); }
-  .contact svg { width: 16px; height: 16px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-  .contact a { color: var(--text); }
-  .contact a:hover { color: var(--accent); }
-
-  main section { margin-bottom: 56px; scroll-margin-top: 80px; }
-  h2 {
-    font-family: "Source Serif 4", Georgia, serif;
-    font-size: 24px; font-weight: 700; margin: 0 0 18px;
-    padding-bottom: 8px; border-bottom: 1px solid var(--line);
-  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: var(--pad-top) 20px 72px; }
+  aside { display: grid; grid-template-columns: 1fr auto; column-gap: 32px; align-items: start; margin-bottom: 40px; }
+  aside .avatar, aside .avatar-fallback { grid-column: 2; grid-row: 1 / span 3; }
+  aside h1, aside .role, aside .contact { grid-column: 1; }
+  .avatar-fallback { display: grid; place-items: center; background: var(--tag-bg); color: var(--accent); font-size: 48px; font-weight: 600; }
+  .contact { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 14.5px; }
+  .contact li { display: flex; align-items: center; gap: 7px; color: var(--muted); }
+  .contact svg { width: 15px; height: 15px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+  main section { margin-bottom: 44px; scroll-margin-top: 80px; }
   main p { margin: 0 0 14px; }
-
-  .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-  .interests span {
-    background: var(--tag-bg); color: var(--text); font-size: 13.5px;
-    padding: 5px 12px; border-radius: 999px;
-  }
-
-  /* ---------- news ---------- */
+  .interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
   .news { list-style: none; padding: 0; margin: 0; }
-  .news li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 6px 0; font-size: 15px; }
+  .news li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; padding: 5px 0; }
   .news time { color: var(--faint); font-variant-numeric: tabular-nums; font-size: 14px; padding-top: 1px; }
-
-  /* ---------- publications ---------- */
-  .pub { padding: 18px 0; border-bottom: 1px dashed var(--line); }
-  .pub:last-child { border-bottom: none; }
-  .pub .title { font-family: "Source Serif 4", Georgia, serif; font-size: 18px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; color: var(--text); }
+  .pub { padding: 14px 0; }
+  .pub .title { font-weight: 600; line-height: 1.4; margin-bottom: 3px; }
   .pub .authors { font-size: 14.5px; color: var(--muted); }
-  .pub .authors .me { color: var(--text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-  .pub .venue { font-size: 14.5px; margin-top: 2px; }
+  .pub .authors .me { color: var(--text); font-weight: 600; }
+  .pub .venue { font-size: 14.5px; margin-top: 2px; color: var(--muted); }
   .pub .venue em { color: var(--text); }
-  .badge {
-    display: inline-block; font-size: 11.5px; font-weight: 600; letter-spacing: .02em;
-    padding: 1px 8px; border-radius: 4px; margin-left: 6px; vertical-align: 1px;
-    background: var(--accent-soft); color: var(--accent);
-  }
-  .pub .tldr { font-size: 14.5px; color: var(--muted); margin-top: 8px; }
-  .pub .links { margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap; }
-  .pub .links a {
-    font-size: 12.5px; font-weight: 500; padding: 2px 10px;
-    border: 1px solid var(--line); border-radius: 6px; color: var(--muted);
-  }
-  .pub .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-
-  /* ---------- experience ---------- */
-  .exp { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 16px 0; border-bottom: 1px dashed var(--line); }
-  .exp:last-child { border-bottom: none; }
-  .exp .org { font-weight: 600; font-size: 16px; }
+  .pub .tldr { font-size: 14.5px; color: var(--muted); margin-top: 6px; }
+  .pub .links { margin-top: 6px; display: flex; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+  .badge { display: inline-block; font-size: 11.5px; font-weight: 600; padding: 1px 8px; border-radius: 4px; margin-left: 6px; vertical-align: 1px; background: var(--tag-bg); color: var(--accent); }
+  .exp { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; padding: 12px 0; }
+  .exp .org { font-weight: 600; }
   .exp .date { color: var(--faint); font-size: 14px; text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
   .exp .pos { grid-column: 1 / -1; color: var(--muted); font-size: 14.5px; }
-  .exp ul { grid-column: 1 / -1; margin: 8px 0 0; padding-left: 20px; font-size: 14.5px; }
+  .exp ul { grid-column: 1 / -1; margin: 6px 0 0; padding-left: 20px; font-size: 14.5px; }
   .exp ul li { margin: 3px 0; }
-
   .honors { list-style: none; padding: 0; margin: 0; }
-  .honors li { display: grid; grid-template-columns: 60px 1fr; gap: 12px; padding: 5px 0; font-size: 15px; }
+  .honors li { display: grid; grid-template-columns: 60px 1fr; gap: 12px; padding: 4px 0; }
   .honors .yr { color: var(--faint); font-variant-numeric: tabular-nums; }
   .honors .by { color: var(--muted); }
-
-  footer { color: var(--faint); font-size: 13px; text-align: center; padding: 24px; border-top: 1px solid var(--line); }
-
-  /* ---------- responsive ---------- */
-  @media (max-width: 860px) {
-    .wrap { grid-template-columns: 1fr; gap: 32px; padding: 32px 16px 64px; }
-    aside { position: static; text-align: left; }
-    .avatar, .avatar-fallback { width: 128px; height: 128px; font-size: 42px; }
-    nav .inner { padding: 0 16px; gap: 12px; }
-    nav .links { display: none; }
-  }
-  @media (max-width: 480px) {
-    .news li { grid-template-columns: 1fr; gap: 0; }
-    .exp { grid-template-columns: 1fr; }
+  footer { color: var(--faint); font-size: 13px; text-align: center; padding: 24px; }
+  #theme { border: 1px solid var(--line); background: var(--surface); color: var(--muted); width: 32px; height: 32px; border-radius: 8px; cursor: pointer; font-size: 15px; line-height: 1; }
+  @media (max-width: 640px) {
+    aside { grid-template-columns: 1fr; }
+    aside .avatar, aside .avatar-fallback { grid-column: 1; grid-row: auto; margin-bottom: 16px; }
+    .news li, .exp { grid-template-columns: 1fr; gap: 0; }
     .exp .date { text-align: left; }
   }
+
+  :root { --maxw: 860px; --pad-top: 104px; }
+  body { font: 16px/1.65 "Roboto", system-ui, sans-serif; font-weight: 400; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: var(--bg); box-shadow: 0 1px 6px rgba(0,0,0,.08); }
+  nav .inner { max-width: 860px; margin: 0 auto; padding: 0 20px; display: flex; align-items: center; gap: 22px; height: 58px; }
+  nav .brand { font-weight: 300; font-size: 19px; color: var(--text); margin-right: auto; }
+  nav .brand:hover { text-decoration: none; color: var(--accent); }
+  nav .links { display: flex; gap: 22px; font-size: 15px; }
+  nav .links a { color: var(--text); }
+  nav .links a:hover { color: var(--accent); text-decoration: none; }
+  #theme { border: none; background: none; font-size: 18px; }
+  aside h1 { font-size: 44px; font-weight: 300; margin: 0 0 4px; letter-spacing: -.01em; }
+  aside .role { color: var(--muted); font-size: 16px; margin: 0 0 16px; }
+  .avatar, .avatar-fallback { width: 190px; height: 230px; border-radius: 10px; object-fit: cover; display: block; box-shadow: 0 4px 18px rgba(0,0,0,.12); }
+  h2 { font-family: "Roboto Slab", serif; font-size: 26px; font-weight: 400; color: var(--accent); margin: 0 0 14px; }
+  .interests span { border: 1px solid var(--accent); color: var(--accent); font-size: 13.5px; padding: 3px 12px; border-radius: 999px; }
+  .news li { padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .news time { font-weight: 700; color: var(--text); }
+  .pub { display: grid; grid-template-columns: 110px 1fr; column-gap: 18px; padding: 18px 0; border-bottom: 1px solid var(--line); }
+  .pub > * { grid-column: 2; }
+  .pub > .vtag { grid-column: 1; grid-row: 1 / span 5; align-self: start; }
+  .pub .title { font-size: 16.5px; }
+  .pub .links a { font-size: 12.5px; border: 1px solid var(--line); color: var(--text); padding: 1px 10px; border-radius: 4px; }
+  .pub .links a:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+  .vtag { display: inline-block; background: var(--accent); color: #fff; font-size: 12.5px; font-weight: 500; padding: 4px 0; width: 100%; text-align: center; border-radius: 4px; }
+  .pub .venue-full { font-size: 14px; color: var(--muted); font-style: italic; }
+  .exp { border-bottom: 1px solid var(--line); padding: 14px 0; }
+  footer { border-top: 1px solid var(--line); }
+  @media (max-width: 760px) {
+    nav .links { display: none; }
+    .pub { grid-template-columns: 1fr; }
+    .pub > *, .pub > .vtag { grid-column: 1; grid-row: auto; justify-self: start; }
+    .vtag { width: auto; padding: 2px 10px; margin-bottom: 6px; }
+  }
+
 </style>
 </head>
 <body>
@@ -235,7 +183,7 @@
         <a href="https://www.pku.edu.cn/">Peking University</a> National Biomedical Imaging Center,
         and currently a visiting researcher in the <a href="https://rehg.org/">Rehg Lab</a> at the
         University of Illinois Urbana-Champaign, advised by
-        <a href="https://rehg.org/">Prof. James M. Rehg</a>.
+        <a href="https://rehg.org/">Prof. Jim Rehg</a> and <a href="https://isminoula.github.io/">Prof. Ismini Lourentzou</a>.
         Before that, I received my B.Eng. in Computer Science from Lanzhou University, ranking 1st of 168.
       </p>
       <p>
@@ -257,7 +205,7 @@
     <section id="news">
       <h2>News</h2>
       <ul class="news">
-        <li><time>Sep 2026</time><span><b>Gaze World Model</b> submitted to ICLR 2027.</span></li>
+        <li><time>Sep 2026</time><span><b>Gaze World Model</b> submitted to CVPR 2027.</span></li>
         <li><time>May 2026</time><span><b>ChildAgentEval</b> preprint released on <a href="https://arxiv.org/abs/2605.17894">arXiv</a>.</span></li>
         <li><time>Mar 2026</time><span>Joined the <a href="https://rehg.org/">Rehg Lab</a> at UIUC as a visiting researcher.</span></li>
         <li><time>Dec 2025</time><span>Started a research internship on multimodal large models at Tencent.</span></li>
@@ -269,9 +217,9 @@
       <h2>Publications</h2>
 
       <div class="pub">
-        <div class="title">Gaze World Model</div>
+        <div class="vtag">CVPR</div><div class="title">Gaze World Model</div>
         <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
-        <div class="venue">Under review at <em>International Conference on Learning Representations (ICLR)</em>, 2027</div>
+        <div class="venue venue-full">Under review at <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2027</div>
         <div class="tldr">
           Treats person-specific gaze in third-person video as world prediction, unifying gaze-point estimation,
           gaze-shift detection and forecasting of future gaze targets. A latent predictor on a frozen V-JEPA 2.1
@@ -281,9 +229,9 @@
       </div>
 
       <div class="pub">
-        <div class="title">Evaluating Cognitive Age Alignment in Interactive AI Agents</div>
+        <div class="vtag">arXiv</div><div class="title">Evaluating Cognitive Age Alignment in Interactive AI Agents</div>
         <div class="authors"><span class="me">Jiawen Zhang</span>, Yifan Shen, Jian Xu, Junho Kim, Ismini Lourentzou, Xu Cao, Meihuan Huang</div>
-        <div class="venue"><em>arXiv preprint arXiv:2605.17894</em>, 2026</div>
+        <div class="venue venue-full"><em>arXiv preprint arXiv:2605.17894</em>, 2026</div>
         <div class="tldr">
           ChildAgentEval: a WISC-inspired interactive web benchmark measuring whether multimodal LLM agents
           behave like children of a given age, with skill-guided distillation of developmental markers into agent constraints.
@@ -292,9 +240,9 @@
       </div>
 
       <div class="pub">
-        <div class="title">Radon–Full-Waveform Inversion for Suppressing Scalp Reverberation and Skull-Induced Aberration in Transcranial Photoacoustic Computed Tomography</div>
+        <div class="vtag">Photoacoustics</div><div class="title">Radon–Full-Waveform Inversion for Suppressing Scalp Reverberation and Skull-Induced Aberration in Transcranial Photoacoustic Computed Tomography</div>
         <div class="authors"><span class="me">Jiawen Zhang</span>, Han Yang, Jintao Ma, Bangxu Fan, Tong Shi, Xiaoyan Zheng, Songqing Xie, Zhuojun Xie, Shuai Na<sup>†</sup></div>
-        <div class="venue"><em>Photoacoustics</em>, 2025<span class="badge">Journal</span></div>
+        <div class="venue venue-full"><em>Photoacoustics</em>, 2025<span class="badge">Journal</span></div>
         <div class="tldr">
           A dual-domain framework where Radon-domain masks separate scalp multiples and regularize elastic FWI,
           improving axial resolution from 1.14 mm to 0.28 mm and SSIM from 0.42 to 0.88.
@@ -303,9 +251,9 @@
       </div>
 
       <div class="pub">
-        <div class="title">Dual-Modality US–PA Aberration Correction for Transcranial Imaging</div>
+        <div class="vtag">TMI</div><div class="title">Dual-Modality US–PA Aberration Correction for Transcranial Imaging</div>
         <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
-        <div class="venue">Under review at <em>IEEE Transactions on Medical Imaging (TMI)</em>, 2026</div>
+        <div class="venue venue-full">Under review at <em>IEEE Transactions on Medical Imaging (TMI)</em>, 2026</div>
         <div class="tldr">
           UMI-PAI estimates skull-induced phase distortion from the ultrasound reflection matrix and reuses it to
           correct photoacoustic reconstruction, with up to 44% PSNR gain and no CT/MR priors.
@@ -355,9 +303,9 @@
         <div class="date">Dec 2025 – Mar 2026</div>
         <div class="pos">Research Intern, Multimodal Large Models</div>
         <ul>
-          <li>Distilled 127K structured CoT trajectories from a 397B teacher into a 4B multimodal model (text + DOM tree + vision) for generative web security assessment.</li>
-          <li>Built an agentic RL pipeline with GRPO, variance-based dynamic prompt sampling and a composite reward that curbs reward hacking.</li>
-          <li>Cut tool-call rounds from 5.43 to 2.90 and latency by 70.8% while reaching 88.5% decision accuracy, above the teacher; reduced false positives by 65.9% on 221K live samples.</li>
+          <li>Formulated adversarial web risk assessment as multi-turn evidence gathering, where a multimodal agent actively queries 19 visual, structural and behavioral tools before reaching a grounded verdict, improving accuracy from 68.6% to 88.4%.</li>
+          <li>Studied how to transfer agentic reasoning from a 397B teacher to a 4B student, combining filtered trajectory SFT that upweights the student’s blind spots with on-policy distillation under token-level reverse KL (Macro-F1 33.8 → 53.5).</li>
+          <li>Explored process-level rewards for agentic RL, using GRPO with trajectory-level credit assignment to the first decisive piece of evidence, which further improved Macro-F1 to 56.5 and cut inference time by 82%.</li>
         </ul>
       </div>
     </section>

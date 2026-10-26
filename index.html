@@ -116,8 +116,27 @@
   .pub .venue-full { font-size: 14px; color: var(--muted); font-style: italic; }
   .exp { border-bottom: 1px solid var(--line); padding: 14px 0; }
   footer { border-top: 1px solid var(--line); }
-  .pub .teaser { margin: 10px 0 4px; }
-  .pub .teaser img { display: block; width: 100%; max-width: 620px; height: auto; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+  /* publication cards: thumbnail left, text right */
+  .pub { display: grid; grid-template-columns: 240px 1fr; column-gap: 26px; align-items: start; padding: 22px 0; }
+  .pub > .thumb, .pub > .body { grid-column: auto; grid-row: auto; }
+  .pub .thumb { display: grid; place-items: center; aspect-ratio: 3 / 2; padding: 8px; background: #fff;
+    border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 1px 4px rgba(0,0,0,.06); overflow: hidden; }
+  .pub a.thumb:hover { border-color: var(--accent); }
+  .pub .thumb img { width: 100%; height: 100%; object-fit: contain; display: block; }
+  .pub .thumb.ph { background: linear-gradient(135deg, var(--tag-bg), var(--surface)); }
+  .pub .thumb.ph span { color: var(--accent); font-family: "Roboto Slab", serif; font-size: 17px; text-align: center; padding: 0 10px; }
+  .pub .title { font-family: "Roboto Slab", serif; font-size: 18px; font-weight: 600; line-height: 1.35; margin-bottom: 6px; }
+  .pub .venue { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin-top: 8px; font-size: 14.5px; }
+  .pub .vname { color: var(--text); font-weight: 500; }
+  .pub .vnote { color: var(--muted); }
+  .pill { display: inline-block; font-size: 12.5px; padding: 1px 10px; border-radius: 6px; border: 1px solid var(--line);
+    background: var(--tag-bg); color: var(--accent); }
+  .pill.ok { color: #1a7f37; background: rgba(26,127,55,.08); border-color: rgba(26,127,55,.25); }
+  @media (max-width: 760px) {
+    .pub { grid-template-columns: 1fr; }
+    .pub .thumb { max-width: 360px; margin-bottom: 12px; }
+    .pub > .body, .pub > .thumb { justify-self: stretch; }
+  }
   #travel-map { height: 460px; border-radius: 10px; border: 1px solid var(--line); margin-top: 14px; background: var(--surface); }
   @media (max-width: 640px) { #travel-map { height: 340px; } }
   @media (max-width: 760px) {
@@ -197,6 +216,8 @@
         AI agents can faithfully simulate human cognition at different developmental ages.
         I have also worked on post-training multimodal LLMs with agentic reinforcement learning at Tencent,
         and on physics-constrained inverse problems for transcranial photoacoustic imaging.
+        I believe advances in technology should help people pay closer attention to their own lives,
+        and I hope my research can help more people better understand themselves and make everyday life easier.
       </p>
       <div class="interests">
         <span>Multimodal AI &amp; World Models</span>
@@ -212,6 +233,7 @@
       <ul class="news">
         <li><time>Oct 2026</time><span><b>Gaze World Model</b> submitted to CVPR 2027.</span></li>
         <li><time>Oct 2026</time><span><b>ChildAgentEval</b> (co-first author) submitted to EACL 2027.</span></li>
+        <li><time>Oct 2026</time><span>Our survey <b><a href="https://zenodo.org/records/23404586">Native Real-Time Interactive Omni Intelligence</a></b> is released.</span></li>
         <li><time>May 2026</time><span><b>ChildAgentEval</b> preprint released on <a href="https://arxiv.org/abs/2605.17894">arXiv</a>.</span></li>
         <li><time>Apr 2026</time><span><b><a href="https://www.sciencedirect.com/science/article/pii/S221359792600039X">Radon–FWI</a></b> for transcranial photoacoustic tomography published in <em>Photoacoustics</em>.</span></li>
         <li><time>Mar 2026</time><span>Joined the <a href="https://rehg.org/">Rehg Lab</a> at UIUC as a visiting researcher, working with <a href="https://rehg.org/">Prof. Jim Rehg</a>.</span></li>
@@ -228,47 +250,71 @@
       <h2>Publications</h2>
 
       <div class="pub">
-        <div class="vtag">CVPR</div><div class="title">Gaze World Model</div>
-        <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
-        <div class="venue venue-full">Under review at <em>IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)</em>, 2027</div>
-        <div class="tldr">
-          Treats person-specific gaze in third-person video as world prediction, unifying gaze-point estimation,
-          gaze-shift detection and forecasting of future gaze targets. A latent predictor on a frozen V-JEPA 2.1
-          encoder lifts shift-detection AP from 78.4 to 89.7 over Gaze-LLE, PaGE, SAGE and frontier MLLMs.
+        <div class="thumb ph"><span>Gaze World Model</span></div>
+        <div class="body">
+          <div class="title">Gaze World Model</div>
+          <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
+          <div class="venue"><span class="vname">CVPR 2027</span><span class="pill">Under Review</span></div>
+          <div class="tldr">
+            Treats person-specific gaze in third-person video as world prediction, unifying gaze-point estimation,
+            gaze-shift detection and forecasting of future gaze targets. A latent predictor on a frozen V-JEPA 2.1
+            encoder lifts shift-detection AP from 78.4 to 89.7 over Gaze-LLE, PaGE, SAGE and frontier MLLMs.
+          </div>
         </div>
       </div>
 
       <div class="pub">
-        <div class="vtag">EACL</div><div class="title">Evaluating Cognitive Age Alignment in Interactive AI Agents</div>
-        <div class="authors"><span class="me">Jiawen Zhang</span><sup>*</sup>, Yifan Shen<sup>*</sup>, Jian Xu, Junho Kim, Ismini Lourentzou, Xu Cao, Meihuan Huang</div>
-        <div class="venue venue-full">Under review at <em>Conference of the European Chapter of the Association for Computational Linguistics (EACL)</em>, 2027; <em>arXiv:2605.17894</em>, 2026</div>
-        <div class="teaser"><img src="images/childagenteval.jpg" alt="Overview of the ChildAgentEval framework" loading="lazy"></div>
-        <div class="tldr">
-          ChildAgentEval: a WISC-inspired interactive web benchmark measuring whether multimodal LLM agents
-          behave like children of a given age, with skill-guided distillation of developmental markers into agent constraints.
+        <a class="thumb" href="https://arxiv.org/abs/2605.17894"><img src="images/childagenteval.jpg" alt="Overview of the ChildAgentEval framework" loading="lazy"></a>
+        <div class="body">
+          <div class="title">Evaluating Cognitive Age Alignment in Interactive AI Agents</div>
+          <div class="authors"><span class="me">Jiawen Zhang</span><sup>*</sup>, Yifan Shen<sup>*</sup>, Jian Xu, Junho Kim, Ismini Lourentzou, Xu Cao, Meihuan Huang</div>
+          <div class="venue"><span class="vname">EACL 2027</span><span class="pill">Under Review</span><span class="vnote">Preprint: <a href="https://arxiv.org/abs/2605.17894">arXiv:2605.17894</a></span></div>
+          <div class="tldr">
+            ChildAgentEval: a WISC-inspired interactive web benchmark measuring whether multimodal LLM agents
+            behave like children of a given age, with skill-guided distillation of developmental markers into agent constraints.
+          </div>
+          <div class="links"><a href="https://arxiv.org/abs/2605.17894">arXiv</a></div>
         </div>
-        <div class="links"><a href="https://arxiv.org/abs/2605.17894">arXiv</a></div>
       </div>
 
       <div class="pub">
-        <div class="vtag">Photoacoustics</div><div class="title">Radon–Full-Waveform Inversion for Suppressing Scalp Reverberation and Skull-Induced Aberration in Transcranial Photoacoustic Computed Tomography</div>
-        <div class="authors"><span class="me">Jiawen Zhang</span>, Han Yang, Jintao Ma, Bangxu Fan, Tong Shi, Xiaoyan Zheng, Songqing Xie, Zhuojun Xie, Shuai Na<sup>†</sup></div>
-        <div class="venue venue-full"><em>Photoacoustics</em>, 2026<span class="badge">Journal</span></div>
-        <div class="teaser"><img src="images/rtfwi.jpg" alt="Overview of the RT–FWI algorithm" loading="lazy"></div>
-        <div class="tldr">
-          A dual-domain framework where Radon-domain masks separate scalp multiples and regularize elastic FWI,
-          improving axial resolution from 1.14 mm to 0.28 mm and SSIM from 0.42 to 0.88.
+        <a class="thumb" href="https://www.sciencedirect.com/science/article/pii/S221359792600039X"><img src="images/rtfwi.jpg" alt="Overview of the RT–FWI algorithm" loading="lazy"></a>
+        <div class="body">
+          <div class="title">Radon–Full-Waveform Inversion for Suppressing Scalp Reverberation and Skull-Induced Aberration in Transcranial Photoacoustic Computed Tomography</div>
+          <div class="authors"><span class="me">Jiawen Zhang</span>, Han Yang, Jintao Ma, Bangxu Fan, Tong Shi, Xiaoyan Zheng, Songqing Xie, Zhuojun Xie, Shuai Na<sup>†</sup></div>
+          <div class="venue"><span class="vname">Photoacoustics 2026</span><span class="pill ok">Published</span></div>
+          <div class="tldr">
+            A dual-domain framework where Radon-domain masks separate scalp multiples and regularize elastic FWI,
+            improving axial resolution from 1.14 mm to 0.28 mm and SSIM from 0.42 to 0.88.
+          </div>
+          <div class="links"><a href="https://www.sciencedirect.com/science/article/pii/S221359792600039X">Paper</a></div>
         </div>
-        <div class="links"><a href="https://www.sciencedirect.com/science/article/pii/S221359792600039X">Paper</a></div>
       </div>
 
       <div class="pub">
-        <div class="vtag">TMI</div><div class="title">Dual-Modality US–PA Aberration Correction for Transcranial Imaging</div>
-        <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
-        <div class="venue venue-full">Under review at <em>IEEE Transactions on Medical Imaging (TMI)</em>, 2026</div>
-        <div class="tldr">
-          UMI-PAI estimates skull-induced phase distortion from the ultrasound reflection matrix and reuses it to
-          correct photoacoustic reconstruction, with up to 44% PSNR gain and no CT/MR priors.
+        <div class="thumb ph"><span>UMI-PAI</span></div>
+        <div class="body">
+          <div class="title">Dual-Modality US–PA Aberration Correction for Transcranial Imaging</div>
+          <div class="authors"><span class="me">Jiawen Zhang</span>, et al.</div>
+          <div class="venue"><span class="vname">IEEE TMI</span><span class="pill">Under Review</span></div>
+          <div class="tldr">
+            UMI-PAI estimates skull-induced phase distortion from the ultrasound reflection matrix and reuses it to
+            correct photoacoustic reconstruction, with up to 44% PSNR gain and no CT/MR priors.
+          </div>
+        </div>
+      </div>
+      <div class="pub">
+        <a class="thumb" href="https://zenodo.org/records/23404586"><img src="images/omni.jpg" alt="Overview of the Native Interactive Omni Intelligence framework" loading="lazy"></a>
+        <div class="body">
+          <div class="title">Native Real-Time Interactive Omni Intelligence: A Unified Framework</div>
+          <div class="authors">Yifan Shen, Zhuoqing Zhong, Xinzhuo Li, Jiateng Liu, Bingxuan Li, Wei Cao, Pei Tian, Lin Zhu, Jian Xu, Zewei Chen, Tianjiao Yu, Haichao Zhang, <span class="me">Jiawen Zhang</span>, Yuner Zhang, Brian Nlong Zhao, Sen Fang, Nan Huang, Bowen Fang, Chen Fang, Boyi Li, Onkar Susladkar, Frank Yang, Yuanzhe Liu, Jingyuan Zhu, Cheng Qian, Yijiang Li, Xinyang Han, Yuan Shen, Xiang Li, Bolin Lai, Xu Cao, Chengde Wan, Yiwen Song, Yue Guo, Heng Ji, Xuan Di, Yiwei Wang, Yaoyao Liu, Dimitris N. Metaxas, Yun Fu, James M. Rehg, Chengxiang Zhai, Ismini Lourentzou</div>
+          <div class="venue"><span class="vname">Survey</span><span class="pill">Preprint</span><span class="vnote">Zenodo, 2026</span></div>
+          <div class="tldr">
+            A survey that frames real-time interaction as a capability of omni-modal models, connecting omni intelligence
+            (understanding, reasoning, memory) with omni interactivity (when to speak, wait, act or revise), and reviewing
+            both adapted streaming systems and model-native interactive architectures.
+          </div>
+          <div class="links"><a href="https://zenodo.org/records/23404586">Paper</a><a href="https://github.com/ShenYifanS/Awesome-Interactive-Omni">Awesome List</a></div>
         </div>
       </div>
       <p style="font-size:13px;color:var(--faint);margin:12px 0 0">* Equal contribution &nbsp;&nbsp; † Corresponding author</p>
@@ -280,7 +326,7 @@
       <div class="exp">
         <div class="org">Rehg Lab, University of Illinois Urbana-Champaign</div>
         <div class="date">Mar 2026 – Present</div>
-        <div class="pos">Research Intern · Advisor: <a href="https://rehg.org/">Prof. James M. Rehg</a> · Mentors: <a href="https://www.irohxucao.com/">Xu Cao</a>, <a href="https://houzey2.github.io/">Houze Yang</a>, <a href="https://shenyifans.github.io/">Yifan Shen</a></div>
+        <div class="pos">Research Intern · Advisors: <a href="https://rehg.org/">Prof. James M. Rehg</a>, <a href="https://isminoula.github.io/">Prof. Ismini Lourentzou</a> · Mentors: <a href="https://www.irohxucao.com/">Xu Cao</a>, <a href="https://houzey2.github.io/">Houze Yang</a>, <a href="https://shenyifans.github.io/">Yifan Shen</a></div>
         <ul>
           <li>Led the <b>Gaze World Model</b> project: frozen V-JEPA 2.1 encoder, RoPE scene–head cross-attention, 3D-RoPE temporal trunk and a latent world predictor trained with a motion-weighted latent prediction loss.</li>
           <li>Built a human-in-the-loop annotation engine that turned frame-level labels in VideoAttentionTarget and ChildPlay into 6,204 event-level gaze shifts.</li>
@@ -366,7 +412,8 @@
       <h2>Beyond Research</h2>
       <p>
         Outside the lab, I am a big fan of 🎬 <b>movies</b> and ✈️ <b>traveling</b>.
-        So far I have visited 56 cities in 4 countries. Here are some of the places I have been:
+        I love meeting new people on the road and in youth hostels, and many of them have become close friends.
+        So far I have traveled to more than 50 cities across China. Here are some of the places I have been:
       </p>
       <div id="travel-map" role="img" aria-label="Map of cities I have visited"></div>
     </section>
@@ -396,14 +443,18 @@
     if (!el || !window.echarts || !window.CHINA_GEO) return;
     echarts.registerMap('china', window.CHINA_GEO);
     var visited = ['北京市', '河北省', '山西省', '辽宁省', '甘肃省', '青海省', '西藏自治区', '陕西省',
-                   '重庆市', '云南省', '湖南省', '福建省', '香港特别行政区'];
+                   '重庆市', '云南省', '湖南省', '福建省', '香港特别行政区', '湖北省', '安徽省',
+                   '四川省', '广东省', '江苏省', '上海市', '山东省'];
     var cities = [
       ['Beijing', 116.41, 39.90], ['Zhangjiakou', 114.89, 40.77], ['Taiyuan', 112.55, 37.87],
       ['Jinzhou', 121.13, 41.10], ['Dalian', 121.61, 38.91], ['Lanzhou', 103.83, 36.06],
       ['Xining', 101.78, 36.62], ['Haixi', 97.37, 37.37], ['Lhasa', 91.17, 29.65],
       ["Xi'an", 108.94, 34.34], ['Chongqing', 106.55, 29.56], ['Kunming', 102.72, 25.04],
       ['Changsha', 112.94, 28.23], ['Chenzhou', 113.01, 25.77], ['Quanzhou', 118.68, 24.87],
-      ['Hong Kong', 114.17, 22.32]
+      ['Hong Kong', 114.17, 22.32], ['Wuhan', 114.31, 30.59], ['Hefei', 117.23, 31.82],
+      ['Chengdu', 104.07, 30.57], ['Guangzhou', 113.26, 23.13], ['Shenzhen', 114.06, 22.54],
+      ['Suzhou', 120.58, 31.30], ['Shanghai', 121.47, 31.23], ['Wuxi', 120.31, 31.49],
+      ['Nanjing', 118.80, 32.06], ['Dali', 100.23, 25.61], ['Jinan', 117.12, 36.65]
     ];
     var chart = echarts.init(el);
     function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }

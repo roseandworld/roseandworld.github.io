@@ -132,6 +132,29 @@
   .pill { display: inline-block; font-size: 12.5px; padding: 1px 10px; border-radius: 6px; border: 1px solid var(--line);
     background: var(--tag-bg); color: var(--accent); }
   .pill.ok { color: #1a7f37; background: rgba(26,127,55,.08); border-color: rgba(26,127,55,.25); }
+
+  /* ---- little cat (bottom-left) ---- */
+  #kitty { position: fixed; left: 14px; bottom: 10px; width: 96px; height: 96px; z-index: 20; cursor: pointer;
+    -webkit-tap-highlight-color: transparent; filter: drop-shadow(0 3px 6px rgba(0,0,0,.18)); }
+  #kitty svg { width: 100%; height: 100%; overflow: visible; }
+  #kitty .tail { transform-origin: 84px 96px; animation: kitty-tail 3.2s ease-in-out infinite; }
+  #kitty .eyes { transform-origin: 60px 50px; animation: kitty-blink 5s infinite; }
+  #kitty .ear-l { transform-origin: 40px 34px; animation: kitty-ear 7s infinite; }
+  #kitty .bubble { position: absolute; left: 70px; bottom: 82px; white-space: nowrap; font-size: 13px; padding: 4px 10px;
+    border-radius: 12px; background: var(--surface); color: var(--text); border: 1px solid var(--line);
+    box-shadow: 0 2px 8px rgba(0,0,0,.12); opacity: 0; transform: translateY(4px); transition: .2s; pointer-events: none; }
+  #kitty:hover .bubble, #kitty:focus-visible .bubble { opacity: 1; transform: none; }
+  #kitty .heart { position: absolute; left: 40px; bottom: 80px; font-size: 18px; opacity: 0; pointer-events: none; }
+  #kitty.pet .heart { animation: kitty-heart 1s ease-out; }
+  #kitty.pet svg { animation: kitty-bounce .5s ease; }
+  @keyframes kitty-tail { 0%,100% { transform: rotate(-6deg); } 50% { transform: rotate(10deg); } }
+  @keyframes kitty-blink { 0%,92%,100% { transform: scaleY(1); } 95% { transform: scaleY(.1); } }
+  @keyframes kitty-ear { 0%,90%,100% { transform: rotate(0); } 93% { transform: rotate(-12deg); } 96% { transform: rotate(4deg); } }
+  @keyframes kitty-heart { 0% { opacity: 0; transform: translateY(0) scale(.6); } 30% { opacity: 1; } 100% { opacity: 0; transform: translateY(-34px) scale(1.2); } }
+  @keyframes kitty-bounce { 0%,100% { transform: translateY(0); } 40% { transform: translateY(-6px); } }
+  @media (max-width: 640px) { #kitty { width: 68px; height: 68px; } #kitty .bubble { left: 50px; bottom: 58px; } }
+  @media (prefers-reduced-motion: reduce) { #kitty * { animation: none !important; } }
+  @media print { #kitty { display: none; } }
   @media (max-width: 760px) {
     .pub { grid-template-columns: 1fr; }
     .pub .thumb { max-width: 360px; margin-bottom: 12px; }
@@ -485,6 +508,71 @@
     new MutationObserver(draw).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
     matchMedia('(prefers-color-scheme: dark)').addEventListener('change', draw);
     addEventListener('resize', function () { chart.resize(); });
+  })();
+</script>
+
+<div id="kitty" role="button" tabindex="0" aria-label="My cat, click to pet">
+  <span class="bubble">Meow~ 🐾</span>
+  <span class="heart">💜</span>
+  <svg viewBox="0 0 120 120" aria-hidden="true">
+    <!-- fluffy tabby tail -->
+    <g class="tail">
+      <path d="M82 98 C104 98 114 82 108 64 C105 56 98 56 99 64 C101 76 96 86 80 88 Z" fill="#3b3836"/>
+      <path d="M100 70 l7 -2 M101 79 l7 1 M96 87 l5 5" stroke="#1c1b1a" stroke-width="3" stroke-linecap="round"/>
+      <path d="M105 62 C104 57 99 57 99 62 Z" fill="#f4f1ec"/>
+    </g>
+    <!-- body -->
+    <ellipse cx="60" cy="88" rx="31" ry="25" fill="#3b3836"/>
+    <path d="M36 82 q6 4 3 12 M84 82 q-6 4 -3 12 M42 98 q4 3 2 9 M78 98 q-4 3 -2 9" stroke="#1c1b1a" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- white chest ruff -->
+    <path d="M44 70 Q60 64 76 70 Q80 92 60 104 Q40 92 44 70 Z" fill="#f4f1ec"/>
+    <!-- white paws -->
+    <ellipse cx="49" cy="109" rx="8" ry="5.5" fill="#f4f1ec"/>
+    <ellipse cx="71" cy="109" rx="8" ry="5.5" fill="#f4f1ec"/>
+    <path d="M46 107 v3 M49 107 v3 M68 107 v3 M71 107 v3" stroke="#cfc8be" stroke-width="1.2" stroke-linecap="round"/>
+    <!-- ears -->
+    <g class="ear-l">
+      <path d="M32 40 L36 12 L54 30 Z" fill="#3b3836"/>
+      <path d="M37 33 L38.5 18 L49 29 Z" fill="#c9a27c"/>
+    </g>
+    <path d="M88 40 L84 12 L66 30 Z" fill="#3b3836"/>
+    <path d="M83 33 L81.5 18 L71 29 Z" fill="#c9a27c"/>
+    <!-- head with fluffy cheeks -->
+    <path d="M30 46 C30 28 44 22 60 22 C76 22 90 28 90 46 C94 52 92 60 86 64 C80 72 70 74 60 74 C50 74 40 72 34 64 C28 60 26 52 30 46 Z" fill="#3b3836"/>
+    <!-- tabby "M" and side stripes -->
+    <path d="M48 35 l4 -9 l8 7 l8 -7 l4 9" stroke="#1c1b1a" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M60 24 v10 M33 48 l8 2 M32 55 l8 0 M87 48 l-8 2 M88 55 l-8 0" stroke="#1c1b1a" stroke-width="2.6" stroke-linecap="round"/>
+    <!-- tan fur around eyes -->
+    <ellipse cx="46" cy="48" rx="9" ry="7" fill="#8a6f55" opacity=".55"/>
+    <ellipse cx="74" cy="48" rx="9" ry="7" fill="#8a6f55" opacity=".55"/>
+    <!-- white blaze + muzzle -->
+    <path d="M57 38 Q60 36 63 38 L65 56 L55 56 Z" fill="#f4f1ec"/>
+    <ellipse cx="60" cy="61" rx="15" ry="10.5" fill="#f4f1ec"/>
+    <!-- eyes (green) -->
+    <g class="eyes">
+      <ellipse cx="46" cy="49" rx="5.6" ry="6" fill="#8fb36a"/>
+      <ellipse cx="74" cy="49" rx="5.6" ry="6" fill="#8fb36a"/>
+      <ellipse cx="46" cy="49.5" rx="2" ry="4.8" fill="#151515"/>
+      <ellipse cx="74" cy="49.5" rx="2" ry="4.8" fill="#151515"/>
+      <circle cx="47.6" cy="46.8" r="1.4" fill="#fff"/>
+      <circle cx="75.6" cy="46.8" r="1.4" fill="#fff"/>
+    </g>
+    <!-- nose & mouth -->
+    <path d="M57 56 h6 l-3 3.4 Z" fill="#d88a8a"/>
+    <path d="M60 59.4 q-2.4 3.6 -5.4 1.6 M60 59.4 q2.4 3.6 5.4 1.6" stroke="#5a4a44" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+    <!-- blush -->
+    <ellipse cx="40" cy="60" rx="4" ry="2.4" fill="#f2a7b5" opacity=".55"/>
+    <ellipse cx="80" cy="60" rx="4" ry="2.4" fill="#f2a7b5" opacity=".55"/>
+    <!-- whiskers -->
+    <path d="M47 60 l-17 -3 M47 63 l-17 2 M73 60 l17 -3 M73 63 l17 2" stroke="#d9d4cc" stroke-width="1" stroke-linecap="round"/>
+  </svg>
+</div>
+<script>
+  (function () {
+    var k = document.getElementById('kitty'); if (!k) return;
+    function pet() { k.classList.remove('pet'); void k.offsetWidth; k.classList.add('pet'); }
+    k.addEventListener('click', pet);
+    k.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pet(); } });
   })();
 </script>
 </body>
